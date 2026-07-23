@@ -910,7 +910,7 @@ function TerrainMap() {
   
   >
     <img
-      src={logo}
+      src="/game-logo.png"
       alt="Game logo"
       style={{
         width: "100%",
