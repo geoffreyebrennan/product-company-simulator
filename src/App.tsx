@@ -903,7 +903,10 @@ function TerrainMap() {
 
   return (
     <div style={{ borderRadius: '18px 18px 0 0', overflow: 'hidden', height: 210, background: '#4a90b8' }}>
-     <img src="src/images/game-logo.png"></img>
+
+import logo from ".assets/images/game-logo.png";
+<img src={logo} />
+
     </div>
   )
 }
@@ -996,11 +999,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
           <div>
-            <Image
-  objectFit='cover'
-  src="src/images/the-board.png"
-  alt="thumbnail"
-/>
+<img src></img>
           </div>
           <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Cinzel', serif" }}>
             The board has questions.
