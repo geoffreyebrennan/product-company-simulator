@@ -1,4 +1,6 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react';
+import gameLogo from "/game-logo.png";
+import theBoard from "/the-board.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -874,7 +876,7 @@ function EventCard({
 
      <div style={{ marginBottom: 22 }}>
     <img
-      src="/game-logo.png"
+      src={gameLogo}
       alt="Game logo"
       style={{
         width: "100%",
@@ -977,7 +979,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
           </div>
           <div style={{  }}>
             <img
-      src="/the-board.png"
+      src={theBoard}
       alt="The Board"
       style={{
         width: "100%",
