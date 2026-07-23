@@ -975,8 +975,16 @@ function BoardMeetingModal({ month, questions, onDone }: {
           <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
-          <div>
-          <img src="/the-board.png" alt="The board" />
+          <div style={{  }}>
+            <img
+      src="/the-board.png"
+      alt="The Board"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+    />
           </div>
           <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Cinzel', serif" }}>
             The board has questions.
