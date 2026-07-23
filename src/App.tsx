@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import logo from "/images/game-logo.png";
+import logo from "./images/game-logo.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
