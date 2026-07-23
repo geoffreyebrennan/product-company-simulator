@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react'
-import logo from "images/game-logo.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -872,43 +871,8 @@ function EventCard({
   )
 }
 
-// ─── Terrain map (isometric hex illustration) ─────────────────────────────────
 
-function TerrainMap() {
-  const hexPts = (cx: number, cy: number, r: number) =>
-    Array.from({ length: 6 }, (_, i) => {
-      const a = (Math.PI / 3) * i - Math.PI / 6
-      return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`
-    }).join(' ')
-
-  const TC: Record<string, [string, string]> = {
-    W: ['#2e6ea0', '#1e5890'], S: ['#4a90b8', '#3a7aa0'],
-    P: ['#7ab840', '#5a9828'], F: ['#2a5f1e', '#1a4f10'],
-    H: ['#748060', '#545e44'], M: ['#60504a', '#4a3c38'],
-    C: ['#b09048', '#907830'], A: ['#c8a030', '#a88020'],
-  }
-
-  const MAP: string[][] = [
-    ['W','W','W','W','S','S','P','P','H','H','M','M'],
-    ['W','W','W','S','S','P','P','P','F','H','M','M'],
-    ['W','W','S','S','P','P','F','F','F','H','H','M'],
-    ['S','S','P','P','P','F','F','F','H','H','M','M'],
-    ['S','P','P','A','A','F','F','H','H','M','M','M'],
-    ['P','P','A','A','A','A','C','H','H','M','M','M'],
-    ['P','A','A','A','A','C','H','H','M','M','M','M'],
-  ]
-
-  const r = 30
-  const hw = Math.sqrt(3) * r
-  const hh = 1.5 * r
-  
-
-  return (
-    <div style={{ borderRadius: '18px 18px 0 0', overflow: 'hidden', height: 210, background: '#4a90b8' }}>
      
-     
-  
-  >
     <img
       src="/game-logo.png"
       alt="Game logo"
@@ -918,13 +882,10 @@ function TerrainMap() {
         objectFit: "cover",
       }}
     />
-  
-);
-     
+ 
 
-    </div>
-  )
-}
+  
+  
 
 // ─── ARR sparkline ────────────────────────────────────────────────────────────
 
@@ -1147,7 +1108,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             border: '2px solid #c4a060',
             boxShadow: '0 10px 36px rgba(80,40,0,0.22)',
           }}>
-            <TerrainMap />
+          
           </div>
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, height: 70,
