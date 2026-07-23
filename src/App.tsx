@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
-import gameLogo from "/game-logo.png";
-import theBoard from "/the-board.png";
+import gameLogo from "public/game-logo.png";
+import theBoard from "/public/the-board.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
