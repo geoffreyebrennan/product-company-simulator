@@ -872,7 +872,7 @@ function EventCard({
 }
 
 
-     
+     <div>
     <img
       src="/game-logo.png"
       alt="Game logo"
@@ -882,6 +882,7 @@ function EventCard({
         objectFit: "cover",
       }}
     />
+    </div>
  
 
   
@@ -975,7 +976,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
           <div>
-          <img src="src/images/the-board.png"></img>
+          <img src="/the-board.png" alt="The board" />
           </div>
           <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Cinzel', serif" }}>
             The board has questions.
