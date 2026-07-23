@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import logo from "./assets/images/game-logo.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -67,7 +68,7 @@ const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }>
   Marketing:   { color: '#c4500a', bg: '#fff0e8', icon: '📣' },
   Finance:     { color: '#a07008', bg: '#fef9d8', icon: '💰' },
   Customers:   { color: '#1a60c4', bg: '#e8f3ff', icon: '👥' },
-  Partners:    { color: '#1a60c4', bg: '#e8f3ff', icon: '🤝' },
+  Partners:    { color: '#0e3c7c', bg: '#e8f3ff', icon: '🤝' },
 }
 
 // ─── Starting stats ───────────────────────────────────────────────────────────
@@ -900,12 +901,32 @@ function TerrainMap() {
   const r = 30
   const hw = Math.sqrt(3) * r
   const hh = 1.5 * r
+  
 
   return (
     <div style={{ borderRadius: '18px 18px 0 0', overflow: 'hidden', height: 210, background: '#4a90b8' }}>
-
-import logo from ".assets/images/game-logo.png";
-<img src={logo} />
+     
+     return (
+  <div
+    style={{
+      borderRadius: "18px 18px 0 0",
+      overflow: "hidden",
+      height: 210,
+      background: "#4a90b8",
+    }}
+  >
+    <img
+      src={logo}
+      alt="Game logo"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+    />
+  </div>
+);
+     
 
     </div>
   )
@@ -999,7 +1020,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
           <div>
-<img src></img>
+          <img src="src/images/the-board.png"></img>
           </div>
           <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Cinzel', serif" }}>
             The board has questions.
