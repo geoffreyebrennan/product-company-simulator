@@ -1102,8 +1102,12 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
     }}>
       <div style={{ maxWidth: 680, width: '100%' }}>
 
-  <div style={{ marginBottom: 22 }}>
-    <img
+  
+      
+
+        {/* Title block */}
+        <div style={{ textAlign: 'center', marginBottom: 36 }}>
+             <img
       src={gameLogo}
       alt="Game logo"
       style={{
@@ -1112,11 +1116,6 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
         objectFit: "cover",
       }}
     />
-    </div>
-      
-
-        {/* Title block */}
-        <div style={{ textAlign: 'center', marginBottom: 36 }}>
           <h1 style={{
             fontSize: 'clamp(34px, 6vw, 54px)',
             fontWeight: 900, fontFamily: "'Cinzel', serif",
