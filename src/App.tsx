@@ -256,6 +256,108 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Slow down release cadence', deltas: { techDebt: -5, burnRate: 12000, runway: -1, morale: 8 } },
     ],
   },
+   {
+    domain: 'Engineering',
+    headline: 'A senior engineer proposes migrating the monolith to microservices.',
+    description: 'Migrating too early adds operational overhead and slows a small team down. Refusing to migrate can leave a monolith that eventually cannot scale with hiring or traffic.',
+    choices: [
+      {
+        label: 'Approve full migration',
+        deltas: { techDebt: 3, morale: 1 },
+        consequence: {
+          monthsLater: 4,
+          domain: 'Engineering',
+          headline: 'Produces effects that show up much later, not immediately',
+          description: 'Approving a full migration might quietly hit velocity (feeding the causality graph), while rejecting it might only bite in month 8-10 as the team hires and the monolith becomes a bottleneck',
+          causalityChain: [
+            'Micoservices are easier to service, but will take a long time to benefit.',
+            'Technical debt avoided (+3%)',
+            'Expensive up front costs',
+            'Effect on customer trust not immediate',
+            'Customer Trust 1%, Retention 1%',
+          ],
+          choices: [
+            { label: 'Approve a limited pilot', deltas: { techDebt: 1, customerTrust: 0, morale: 1, burnRate: 3000 } },
+            { label: 'Allays engineering concerns', deltas: { customerTrust: 1, arr: -1000, retention: 1.1 } },
+          ],
+        },
+      },
+      { label: 'Delay the decision', deltas: { techDebt: -8, morale: 5, mrrGrowth: 1 } },
+      {
+        label: 'Reject and refocus on features',
+        deltas: { techDebt: -10, morale: -8, mrrGrowth: -3, burnRate: 6000 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Engineering',
+          headline: 'Monolith architecture support continues',
+          description: 'A classic real engineering trade-off with the delayed, systemic consequences.',
+          causalityChain: [
+            'Putting off in the short term in favour of other priorities',
+            'Acceptance of a reasonable amount of technical debt',
+            'Future work ready to pick up by the engineering team',
+            'Engineer productivity may slide over time',
+            'Feature Velocity -5%, Tech Debt 10%',
+          ],
+          choices: [
+            { label: 'Negotiate with the team', deltas: { morale: 5, customerTrust: 5 } },
+            { label: 'Revaluate migration', deltas: { techDebt: -4, morale: 5 } },
+          ],
+        },
+      },
+      { label: 'Delay the decision', deltas: { techDebt: -5, burnRate: 12000, runway: -1, morale: -4 } },
+    ],
+  },
+   {
+    domain: 'Engineering',
+    headline: 'A critical security vulnerability is discovered in a third-party library.',
+    description: 'Third party security vulnerabity identified that will hit all users in three months.',
+    choices: [
+      {
+        label: 'Patch immediately',
+        deltas: { techDebt: 3, morale: 2 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Engineering',
+          headline: 'Issue must be addressed',
+          description: 'As a known high criticallity issue, there is not much reason to delay or put off the required work',
+          causalityChain: [
+            'Security vulnerabilities are existential to business.',
+            'High chance of attack if not addressed',
+            'It can break the whole system, leak private data, or stop service completely',
+            'Will mean moving developers away from new features to fix the flaw right away',
+            'Customer Trust 1%, Retention 1%',
+          ],
+          choices: [
+            { label: 'Move fast to fix issue', deltas: { techDebt: 1, customerTrust: 0, morale: 1, burnRate: 3000 } },
+            { label: 'Allays engineering concerns', deltas: { customerTrust: 1, arr: -1000, retention: 1.1 } },
+          ],
+        },
+      },
+      { label: 'Assess exposure before acting', deltas: { techDebt: -8, morale: 5, mrrGrowth: 1 } },
+      {
+        label: 'Ignore, low perceived risk',
+        deltas: { techDebt: -20, morale: -16, mrrGrowth: -3, burnRate: 6000 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Engineering',
+          headline: 'Ignoring known security risk had major consequnces',
+          description: 'By not fixing the third party security vulnerabilty, customer trust was massively eroded.',
+          causalityChain: [
+            'Customer trust -30%',
+            'Marketing costs increase to overcome bad faith',
+            'Confidence in product decisions affected',
+            'Fixing the issues after-the-fact end up costing double',
+            'Feature Velocity -5%, Tech Debt -30%',
+          ],
+          choices: [
+            { label: 'Work to resolve eroded customer trust', deltas: { morale: -15, customerTrust: -30 } },
+            { label: 'Restructuring to avoid repeating mistake in the future', deltas: { techDebt: -4, morale: -10 } },
+          ],
+        },
+      },
+      { label: 'Schedule a fix next sprint', deltas: { techDebt: -1, burnRate: 500, runway: -1, morale: -1 } },
+    ],
+  },
   {
     domain: 'Sales',
     headline: 'Enterprise customer requests SAML SSO',
