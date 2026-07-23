@@ -1107,12 +1107,13 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
 
         {/* Title block */}
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
+             <div style={{display: 'inline-flex', alignItems: 'center'}}>
              <img
       src={gameLogo}
       alt="Game logo"
       style={{
-        width: "100%",
-        height: "100%",
+        width: "240px",
+        height: "240px",
         objectFit: "cover",
       }}
     />
@@ -1123,7 +1124,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             lineHeight: 1.08, letterSpacing: '-0.01em',
           }}>
             Product Company Simulator
-          </h1>
+          </h1></div>
           <p style={{ fontSize: 15.5, color: '#7a5c30', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
             Learn how product decisions compound over time.
           </p>
