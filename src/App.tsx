@@ -757,7 +757,7 @@ function StatCard({ def, value, prevValue }: { def: StatDef; value: number; prev
   const good = (diff > 0 && def.goodDir > 0) || (diff < 0 && def.goodDir < 0)
   const bad  = (diff > 0 && def.goodDir < 0) || (diff < 0 && def.goodDir > 0)
   const warn = def.warn(value)
-  const valueColor = warn ? (def.goodDir > 0 ? '#a02020' : '#a06010') : '#2a1f0e'
+  const valueColor = warn ? (def.goodDir > 0 ? '#a02020' : '#a06010') : '#010C1B'
 
   return (
     <div style={{
@@ -830,7 +830,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
             <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
               ⛓ Why did this happen?
             </div>
-            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Merriweather', serif" }}>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', serif" }}>
               {title}
             </h3>
           </div>
@@ -851,7 +851,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
                   border: `1.5px solid ${isFirst ? '#c4a060' : isLast ? '#d06060' : '#dcc890'}`,
                   borderRadius: 10, padding: '10px 14px',
                   fontSize: 13.5, lineHeight: 1.45,
-                  color: isLast ? '#7a2020' : '#2a1f0e',
+                  color: isLast ? '#7a2020' : '#010C1B',
                   fontWeight: isFirst || isLast ? 700 : 500,
                   fontFamily: "'Nunito', sans-serif",
                   display: 'flex', gap: 10, alignItems: 'flex-start',
@@ -919,7 +919,7 @@ function EventCard({
             </span>
           )}
         </div>
-        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Merriweather', serif", lineHeight: 1.3 }}>
+        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', serif", lineHeight: 1.3 }}>
           {event.headline}
         </h3>
         <p style={{ margin: 0, fontSize: 13, color: '#6a4a24', lineHeight: 1.55 }}>
@@ -957,7 +957,7 @@ function EventCard({
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#c8a860'}`,
                 borderRadius: 10, padding: '9px 13px',
                 fontSize: 13, fontWeight: 700,
-                color: chosen ? '#fff' : dimmed ? '#b0986a' : '#2a1f0e',
+                color: chosen ? '#fff' : dimmed ? '#b0986a' : '#010C1B',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
                 opacity: dimmed ? 0.55 : 1,
@@ -1080,7 +1080,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
       }}
     />
           </div>
-          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Merriweather', serif" }}>
+          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', serif" }}>
             The board has questions.
           </h2>
           <p style={{ margin: 0, fontSize: 13.5, color: '#6a4a24', lineHeight: 1.5 }}>
@@ -1093,8 +1093,8 @@ function BoardMeetingModal({ month, questions, onDone }: {
             <div style={{
               background: '#f0e8d0', border: '1.5px solid #c4a060',
               borderRadius: 10, padding: '11px 15px',
-              fontSize: 14.5, fontWeight: 700, color: '#2a1f0e',
-              fontFamily: "'Merriweather', serif", lineHeight: 1.35, marginBottom: 10,
+              fontSize: 14.5, fontWeight: 700, color: '#010C1B',
+              fontFamily: "'Lexend', serif", lineHeight: 1.35, marginBottom: 10,
             }}>
               "{q.question}"
             </div>
@@ -1113,7 +1113,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
                         border: `1.5px solid ${chosen ? (a.honest ? '#2d7a45' : '#c46060') : '#c8a860'}`,
                         borderRadius: 10, padding: '9px 14px',
                         fontSize: 13.5, fontWeight: 600,
-                        color: chosen ? (a.honest ? '#1a5a30' : '#8a2020') : '#2a1f0e',
+                        color: chosen ? (a.honest ? '#1a5a30' : '#8a2020') : '#010C1B',
                         cursor: revealed ? 'default' : 'pointer',
                         textAlign: 'left', transition: 'all 0.15s',
                         fontFamily: "'Nunito', sans-serif",
@@ -1151,7 +1151,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
               color: '#fff', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
               cursor: allAnswered ? 'pointer' : 'not-allowed',
-              fontFamily: "'Merriweather', serif", letterSpacing: '0.04em',
+              fontFamily: "'Lexend', serif", letterSpacing: '0.04em',
             }}
           >
             Submit Responses to the Board
@@ -1163,7 +1163,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
               width: '100%', background: '#4a7c59',
               color: '#fff', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
-              cursor: 'pointer', fontFamily: "'Merriweather', serif",
+              cursor: 'pointer', fontFamily: "'Lexend', serif",
               letterSpacing: '0.04em',
               boxShadow: '0 4px 16px rgba(74,124,89,0.35)',
             }}
@@ -1221,8 +1221,8 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
     />
           <h1 style={{
             fontSize: 'clamp(34px, 6vw, 54px)',
-            fontWeight: 900, fontFamily: "'Merriweather', serif",
-            color: '#2a1f0e', margin: '0 0 6px',
+            fontWeight: 900, fontFamily: "'Lexend', serif",
+            color: '#010C1B', margin: '0 0 6px',
             lineHeight: 1.08, letterSpacing: '-0.01em',
           }}>
             Product Company Simulator
@@ -1260,7 +1260,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 }}
               >
                 <div style={{ fontSize: 28, marginBottom: 7 }}>{sc.emoji}</div>
-                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#fff' : '#2a1f0e', fontFamily: "'Merriweather', serif", marginBottom: 6 }}>
+                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#fff' : '#010C1B', fontFamily: "'Lexend', serif", marginBottom: 6 }}>
                   {sc.name}
                 </div>
                 <div style={{ fontSize: 13, color: active ? 'rgba(255,255,255,0.82)' : '#6a4a24', lineHeight: 1.55, marginBottom: 12 }}>
@@ -1270,7 +1270,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                   {sc.stats.map(s => (
                     <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
                       <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#8a6a38', fontWeight: 600 }}>{s.l}</span>
-                      <span style={{ color: active ? '#fff' : '#2a1f0e', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
+                      <span style={{ color: active ? '#fff' : '#010C1B', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
                     </div>
                   ))}
                 </div>
@@ -1288,7 +1288,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             color: '#fff', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
-            fontFamily: "'Merriweather', serif", letterSpacing: '0.04em',
+            fontFamily: "'Lexend', serif", letterSpacing: '0.04em',
             boxShadow: sel ? '0 4px 22px rgba(74,124,89,0.42)' : 'none',
             transition: 'all 0.2s ease',
           }}
@@ -1322,11 +1322,11 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
     : 'Burn rate stayed elevated relative to ARR growth, constraining long-term runway.'
 
   const finalSummary: { label: string; value: string; color: string }[] = [
-    { label: 'Final ARR', value: stats.arr >= 1_000_000 ? `£${(stats.arr/1_000_000).toFixed(2)}M` : `£${(stats.arr/1000).toFixed(0)}k`, color: '#2a1f0e' },
-    { label: 'Net Retention', value: `${stats.retention.toFixed(1)}%`, color: stats.retention > 90 ? '#2a6a3a' : stats.retention < 80 ? '#a02020' : '#2a1f0e' },
+    { label: 'Final ARR', value: stats.arr >= 1_000_000 ? `£${(stats.arr/1_000_000).toFixed(2)}M` : `£${(stats.arr/1000).toFixed(0)}k`, color: '#010C1B' },
+    { label: 'Net Retention', value: `${stats.retention.toFixed(1)}%`, color: stats.retention > 90 ? '#2a6a3a' : stats.retention < 80 ? '#a02020' : '#010C1B' },
     { label: 'Tech Debt', value: tdStatus, color: tdColor },
-    { label: 'Team Morale', value: `${Math.round(stats.morale)}%`, color: stats.morale > 70 ? '#2a6a3a' : stats.morale < 50 ? '#a02020' : '#2a1f0e' },
-    { label: 'Market Share', value: `${stats.marketShare.toFixed(1)}%`, color: '#2a1f0e' },
+    { label: 'Team Morale', value: `${Math.round(stats.morale)}%`, color: stats.morale > 70 ? '#2a6a3a' : stats.morale < 50 ? '#a02020' : '#010C1B' },
+    { label: 'Market Share', value: `${stats.marketShare.toFixed(1)}%`, color: '#010C1B' },
     { label: 'Investor Sentiment', value: ivSent, color: ivColor },
   ]
 
@@ -1343,7 +1343,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
           <div style={{ fontSize: 11, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
             Final Report · Month 60
           </div>
-          <h1 style={{ fontSize: 38, fontWeight: 900, color: '#2a1f0e', margin: '0 0 8px', fontFamily: "'Merriweather', serif" }}>
+          <h1 style={{ fontSize: 38, fontWeight: 900, color: '#010C1B', margin: '0 0 8px', fontFamily: "'Lexend', serif" }}>
             Your 5-Year Report Card
           </h1>
           <p style={{ fontSize: 14.5, color: '#6a4a24', margin: 0 }}>How did your product decisions compound?</p>
@@ -1403,7 +1403,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
             background: '#4a7c59', color: '#fff', border: 'none',
             borderRadius: 14, padding: '16px 0',
             fontSize: 18, fontWeight: 800, cursor: 'pointer',
-            fontFamily: "'Merriweather', serif", letterSpacing: '0.04em',
+            fontFamily: "'Lexend', serif", letterSpacing: '0.04em',
             boxShadow: '0 4px 22px rgba(74,124,89,0.42)',
           }}
         >
@@ -1440,7 +1440,7 @@ function GameScreen({
 
       {/* Top header */}
       <div style={{
-        background: '#2a1f0e',
+        background: '#010C1B',
         borderBottom: '2px solid #c4a060',
         padding: '11px 20px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -1456,10 +1456,10 @@ function GameScreen({
         height: "60px",
         objectFit: "cover",
       }}></img>
-          <span style={{ fontFamily: "'Merriweather', serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
+          <span style={{ fontFamily: "'Lexend', serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
             Product Company Simulator
           </span>
-          <span style={{ color: '#7a6040', fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>
+          <span style={{ color: '#5D9CD1', fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>
             Playing as Head of Product · {stats.arr >= 1_000_000 ? `£${(stats.arr/1_000_000).toFixed(2)}M ARR` : `£${(stats.arr/1000).toFixed(0)}k ARR`}
           </span>
         </div>
@@ -1474,7 +1474,7 @@ function GameScreen({
             </span>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <div style={{ fontFamily: "'Merriweather', serif", fontWeight: 800, color: '#f0e0a8', fontSize: 14 }}>
+            <div style={{ fontFamily: "'Lexend', serif", fontWeight: 800, color: '#f0e0a8', fontSize: 14 }}>
               Month {month} of 60
             </div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", color: '#a08058', fontSize: 10 }}>{date}</div>
@@ -1591,7 +1591,7 @@ function GameScreen({
             color: '#fff', border: 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
-            fontFamily: "'Merriweather', serif", letterSpacing: '0.05em',
+            fontFamily: "'Lexend', serif", letterSpacing: '0.05em',
             boxShadow: canEndMonth ? '0 4px 18px rgba(42,74,106,0.38)' : 'none',
             transition: 'all 0.2s ease',
           }}
