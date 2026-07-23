@@ -67,7 +67,7 @@ const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }>
   Marketing:   { color: '#c4500a', bg: '#fff0e8', icon: '📣' },
   Finance:     { color: '#a07008', bg: '#fef9d8', icon: '💰' },
   Customers:   { color: '#1a60c4', bg: '#e8f3ff', icon: '👥' },
-  Partners:   { color: '#1a60c4', bg: '#e8f3ff', icon: '🤝' },
+  Partners:    { color: '#1a60c4', bg: '#e8f3ff', icon: '🤝' },
 }
 
 // ─── Starting stats ───────────────────────────────────────────────────────────
@@ -201,6 +201,57 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
         },
       },
       { label: 'Hire platform engineers', deltas: { techDebt: -5, burnRate: 12000, runway: -1, morale: 8 } },
+    ],
+  },
+   {
+    domain: 'Engineering',
+    headline: 'Flaky test suite is causing repeated production bugs',
+    description: 'Flaky tests in code causes 2 incidents a month and blocks half of all deployments. Engineers are concerned.',
+    choices: [
+      {
+        label: 'Ignore it',
+        deltas: { techDebt: 5, morale: -2 },
+        consequence: {
+          monthsLater: 4,
+          domain: 'Engineering',
+          headline: 'Deployment delays negatively affect velocity',
+          description: 'Testing issues mean deployments are slow. Engineers are starting to complain about overtime.',
+          causalityChain: [
+            'Flaky test suite',
+            'Technical debt accumulated (+5%)',
+            'Half of all deployments are delayed',
+            'Engineering complaining, as are others affected by delays',
+            'Customer Trust −5%, Retention −1%',
+          ],
+          choices: [
+            { label: 'Emergency hotfix', deltas: { techDebt: -5, customerTrust: 2, morale: -4, burnRate: 3000 } },
+            { label: 'Delay fix', deltas: { customerTrust: 8, arr: -8000, retention: 1.2 } },
+          ],
+        },
+      },
+      { label: 'Assign a dedicated sprint to fix', deltas: { techDebt: -8, morale: 5, mrrGrowth: 1 } },
+      {
+        label: 'Invest in automated testing infrastructure',
+        deltas: { techDebt: -20, morale: 8, mrrGrowth: -3, burnRate: 5000 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Engineering',
+          headline: 'Flaky tests fixed — velocity restored',
+          description: 'The test fixes are live. Incidents dropped to zero and engineers are shipping faster.',
+          causalityChain: [
+            'Invested in automted test infrastructure',
+            'Removed 2 years of technical debt',
+            'Incident rate dropped to near-zero',
+            'Engineer productivity up 10%',
+            'Feature Velocity +18%, Tech Debt −20%',
+          ],
+          choices: [
+            { label: 'Celebrate with the team', deltas: { morale: 10, customerTrust: 5 } },
+            { label: 'Tackle next debt area', deltas: { techDebt: -8, morale: 5 } },
+          ],
+        },
+      },
+      { label: 'Slow down release cadence', deltas: { techDebt: -5, burnRate: 12000, runway: -1, morale: 8 } },
     ],
   },
   {
@@ -550,7 +601,7 @@ function getHealthSummary(stats: Stats): { text: string; color: string } {
   return { text: 'Steady as she goes. Monitor tech debt and runway closely.', color: '#2a4a6a' }
 }
 
-function getInGameDate(month: number): string {
+function getInGameDate(_month: number): string {
   const currentYear  = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
   const totalMonth = 1 + currentMonth - 1
