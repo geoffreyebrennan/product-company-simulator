@@ -872,7 +872,7 @@ function EventCard({
 }
 
 
-     <div>
+     <div style={{ marginBottom: 22 }}>
     <img
       src="/game-logo.png"
       alt="Game logo"
