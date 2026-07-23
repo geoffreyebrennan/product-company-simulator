@@ -830,7 +830,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
             <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
               ⛓ Why did this happen?
             </div>
-            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', serif" }}>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif" }}>
               {title}
             </h3>
           </div>
@@ -919,7 +919,7 @@ function EventCard({
             </span>
           )}
         </div>
-        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', serif", lineHeight: 1.3 }}>
+        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif", lineHeight: 1.3 }}>
           {event.headline}
         </h3>
         <p style={{ margin: 0, fontSize: 13, color: '#6a4a24', lineHeight: 1.55 }}>
@@ -1080,7 +1080,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
       }}
     />
           </div>
-          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', serif" }}>
+          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif" }}>
             The board has questions.
           </h2>
           <p style={{ margin: 0, fontSize: 13.5, color: '#6a4a24', lineHeight: 1.5 }}>
@@ -1094,7 +1094,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
               background: '#f0e8d0', border: '1.5px solid #c4a060',
               borderRadius: 10, padding: '11px 15px',
               fontSize: 14.5, fontWeight: 700, color: '#010C1B',
-              fontFamily: "'Lexend', serif", lineHeight: 1.35, marginBottom: 10,
+              fontFamily: "'Lexend', sans-serif", lineHeight: 1.35, marginBottom: 10,
             }}>
               "{q.question}"
             </div>
@@ -1151,7 +1151,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
               color: '#fff', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
               cursor: allAnswered ? 'pointer' : 'not-allowed',
-              fontFamily: "'Lexend', serif", letterSpacing: '0.04em',
+              fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
             }}
           >
             Submit Responses to the Board
@@ -1163,7 +1163,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
               width: '100%', background: '#4a7c59',
               color: '#fff', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
-              cursor: 'pointer', fontFamily: "'Lexend', serif",
+              cursor: 'pointer', fontFamily: "'Lexend', sans-serif",
               letterSpacing: '0.04em',
               boxShadow: '0 4px 16px rgba(74,124,89,0.35)',
             }}
@@ -1221,7 +1221,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
     />
           <h1 style={{
             fontSize: 'clamp(34px, 6vw, 54px)',
-            fontWeight: 900, fontFamily: "'Lexend', serif",
+            fontWeight: 900, fontFamily: "'Lexend', sans-serif",
             color: '#010C1B', margin: '0 0 6px',
             lineHeight: 1.08, letterSpacing: '-0.01em',
           }}>
@@ -1260,7 +1260,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 }}
               >
                 <div style={{ fontSize: 28, marginBottom: 7 }}>{sc.emoji}</div>
-                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#fff' : '#010C1B', fontFamily: "'Lexend', serif", marginBottom: 6 }}>
+                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#fff' : '#010C1B', fontFamily: "'Lexend', sans-serif", marginBottom: 6 }}>
                   {sc.name}
                 </div>
                 <div style={{ fontSize: 13, color: active ? 'rgba(255,255,255,0.82)' : '#6a4a24', lineHeight: 1.55, marginBottom: 12 }}>
@@ -1288,7 +1288,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             color: '#fff', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
-            fontFamily: "'Lexend', serif", letterSpacing: '0.04em',
+            fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
             boxShadow: sel ? '0 4px 22px rgba(74,124,89,0.42)' : 'none',
             transition: 'all 0.2s ease',
           }}
@@ -1343,7 +1343,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
           <div style={{ fontSize: 11, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
             Final Report · Month 60
           </div>
-          <h1 style={{ fontSize: 38, fontWeight: 900, color: '#010C1B', margin: '0 0 8px', fontFamily: "'Lexend', serif" }}>
+          <h1 style={{ fontSize: 38, fontWeight: 900, color: '#010C1B', margin: '0 0 8px', fontFamily: "'Lexend', sans-serif" }}>
             Your 5-Year Report Card
           </h1>
           <p style={{ fontSize: 14.5, color: '#6a4a24', margin: 0 }}>How did your product decisions compound?</p>
@@ -1403,7 +1403,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
             background: '#4a7c59', color: '#fff', border: 'none',
             borderRadius: 14, padding: '16px 0',
             fontSize: 18, fontWeight: 800, cursor: 'pointer',
-            fontFamily: "'Lexend', serif", letterSpacing: '0.04em',
+            fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
             boxShadow: '0 4px 22px rgba(74,124,89,0.42)',
           }}
         >
@@ -1456,7 +1456,7 @@ function GameScreen({
         height: "60px",
         objectFit: "cover",
       }}></img>
-          <span style={{ fontFamily: "'Lexend', serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
+          <span style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
             Product Company Simulator
           </span>
           <span style={{ color: '#5D9CD1', fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>
@@ -1474,7 +1474,7 @@ function GameScreen({
             </span>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <div style={{ fontFamily: "'Lexend', serif", fontWeight: 800, color: '#f0e0a8', fontSize: 14 }}>
+            <div style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 800, color: '#f0e0a8', fontSize: 14 }}>
               Month {month} of 60
             </div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", color: '#a08058', fontSize: 10 }}>{date}</div>
@@ -1591,7 +1591,7 @@ function GameScreen({
             color: '#fff', border: 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
-            fontFamily: "'Lexend', serif", letterSpacing: '0.05em',
+            fontFamily: "'Lexend', sans-serif", letterSpacing: '0.05em',
             boxShadow: canEndMonth ? '0 4px 18px rgba(42,74,106,0.38)' : 'none',
             transition: 'all 0.2s ease',
           }}
