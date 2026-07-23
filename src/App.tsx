@@ -601,10 +601,10 @@ function getHealthSummary(stats: Stats): { text: string; color: string } {
   return { text: 'Steady as she goes. Monitor tech debt and runway closely.', color: '#2a4a6a' }
 }
 
-function getInGameDate(_month: number): string {
+function getInGameDate(month: number): string {
   const currentYear  = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
-  const totalMonth = 1 + currentMonth - 1
+  //const currentMonth = new Date().getMonth();
+  const totalMonth = 1 + month - 1
   const year = currentYear + Math.floor((totalMonth - 1) / 12)
   const m = (totalMonth - 1) % 12
   const names = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
