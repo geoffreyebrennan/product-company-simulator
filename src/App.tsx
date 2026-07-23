@@ -874,17 +874,7 @@ function EventCard({
 }
 
 
-     <div style={{ marginBottom: 22 }}>
-    <img
-      src={gameLogo}
-      alt="Game logo"
-      style={{
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-      }}
-    />
-    </div>
+   
  
 
   
@@ -1112,21 +1102,18 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
     }}>
       <div style={{ maxWidth: 680, width: '100%' }}>
 
-        {/* Terrain illustration */}
-        <div style={{ marginBottom: 36, position: 'relative' }}>
-          <div style={{
-            borderRadius: 20, overflow: 'hidden',
-            border: '2px solid #c4a060',
-            boxShadow: '0 10px 36px rgba(80,40,0,0.22)',
-          }}>
-          
-          </div>
-          <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, height: 70,
-            background: 'linear-gradient(to bottom, transparent, #f2e8d0)',
-            borderRadius: '0 0 18px 18px',
-          }}/>
-        </div>
+  <div style={{ marginBottom: 22 }}>
+    <img
+      src={gameLogo}
+      alt="Game logo"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+    />
+    </div>
+      
 
         {/* Title block */}
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
