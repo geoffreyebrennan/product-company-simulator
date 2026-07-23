@@ -1346,6 +1346,14 @@ function GameScreen({
         position: 'sticky', top: 0, zIndex: 50,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <img
+      src={gameLogo}
+      alt="Game logo"
+      style={{
+        width: "60px",
+        height: "60px",
+        objectFit: "cover",
+      }}></img>
           <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
             Product Company Simulator
           </span>
