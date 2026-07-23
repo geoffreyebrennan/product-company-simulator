@@ -873,7 +873,7 @@ function EventCard({
   )
 }
 
-return (
+
      <div style={{ marginBottom: 22 }}>
     <img
       src={gameLogo}
@@ -885,7 +885,7 @@ return (
       }}
     />
     </div>
- )
+ 
 
   
   
