@@ -903,45 +903,7 @@ function TerrainMap() {
 
   return (
     <div style={{ borderRadius: '18px 18px 0 0', overflow: 'hidden', height: 210, background: '#4a90b8' }}>
-      <svg
-        viewBox={`-4 -4 ${hw * 12 + hw / 2 + 12} ${hh * 7 + r + 12}`}
-        style={{
-          width: '100%', height: '100%',
-          transform: 'perspective(700px) rotateX(40deg) rotateZ(-8deg) scale(1.2)',
-          transformOrigin: 'center 35%',
-        }}
-      >
-        <defs>
-          <filter id="hshad"><feDropShadow dx="0" dy="1" stdDeviation="0.8" floodOpacity="0.25"/></filter>
-        </defs>
-        {MAP.map((row, ri) =>
-          row.map((type, qi) => {
-            const [fill, stroke] = TC[type]
-            const cx = hw * qi + (ri % 2 === 1 ? hw / 2 : 0) + r
-            const cy = hh * ri + r
-            return (
-              <polygon
-                key={`${ri}-${qi}`}
-                points={hexPts(cx, cy, r - 1.5)}
-                fill={fill} stroke={stroke} strokeWidth="1"
-                filter="url(#hshad)"
-              />
-            )
-          })
-        )}
-        {/* City buildings */}
-        {([[310,222,10,28],[326,218,8,32],[342,225,10,25]] as [number,number,number,number][]).map(([x,y,w,h],i) => (
-          <rect key={`b${i}`} x={x} y={y} width={w} height={h} fill="#c8b870" stroke="#9a8848" strokeWidth="0.8" rx="1.5"/>
-        ))}
-        {/* Trees in forest */}
-        {([[240,165],[258,174],[275,160],[295,170],[315,156],[335,168]] as [number,number][]).map(([x,y],i) => (
-          <g key={`t${i}`}>
-            <circle cx={x} cy={y} r={9} fill="#1a4a10" opacity="0.9"/>
-            <circle cx={x-2} cy={y+4} r={6} fill="#2a5f1e" opacity="0.85"/>
-            <circle cx={x+3} cy={y+2} r={5} fill="#1f5216" opacity="0.8"/>
-          </g>
-        ))}
-      </svg>
+     <img src="src\images\game-logo.png"></img>
     </div>
   )
 }
