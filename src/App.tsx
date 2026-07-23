@@ -903,7 +903,7 @@ function TerrainMap() {
 
   return (
     <div style={{ borderRadius: '18px 18px 0 0', overflow: 'hidden', height: 210, background: '#4a90b8' }}>
-     <img src="src\images\game-logo.png"></img>
+     <img src="src/images/game-logo.png"></img>
     </div>
   )
 }
@@ -996,7 +996,11 @@ function BoardMeetingModal({ month, questions, onDone }: {
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
           <div>
-          <img src="src\images\the-board.png"></img>
+            <Image
+  objectFit='cover'
+  src="src/images/the-board.png"
+  alt="thumbnail"
+/>
           </div>
           <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#2a1f0e', fontFamily: "'Cinzel', serif" }}>
             The board has questions.
@@ -1146,7 +1150,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             color: '#2a1f0e', margin: '0 0 6px',
             lineHeight: 1.08, letterSpacing: '-0.01em',
           }}>
-            Product Simulator
+            Product Lead Simulator
           </h1>
           <p style={{ fontSize: 15.5, color: '#7a5c30', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
             Learn how product decisions compound over time.
@@ -1370,7 +1374,7 @@ function GameScreen({
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
-            Product Simulator
+            Product Lead Simulator
           </span>
           <span style={{ color: '#7a6040', fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>
             Head of Product · {stats.arr >= 1_000_000 ? `£${(stats.arr/1_000_000).toFixed(2)}M ARR` : `£${(stats.arr/1000).toFixed(0)}k ARR`}
