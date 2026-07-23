@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import logo from "./images/game-logo.png";
+import logo from "images/game-logo.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -906,14 +906,8 @@ function TerrainMap() {
   return (
     <div style={{ borderRadius: '18px 18px 0 0', overflow: 'hidden', height: 210, background: '#4a90b8' }}>
      
-     return (
-  <div
-    style={{
-      borderRadius: "18px 18px 0 0",
-      overflow: "hidden",
-      height: 210,
-      background: "#4a90b8",
-    }}
+     
+  
   >
     <img
       src={logo}
@@ -924,7 +918,7 @@ function TerrainMap() {
         objectFit: "cover",
       }}
     />
-  </div>
+  
 );
      
 
