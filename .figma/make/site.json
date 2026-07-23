@@ -1,0 +1,17 @@
+{
+  "title": "Product Simulator",
+  "description": "Streamline project collaboration by allowing users to upload, review, and manage design assets efficiently, enhancing productivity and communication.",
+  "robots": {
+    "index": false
+  },
+  "icons": {
+    "icon": "/.figma/make/favicon.png"
+  },
+  "openGraph": {
+    "image": "/.figma/make/social-image.png"
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
