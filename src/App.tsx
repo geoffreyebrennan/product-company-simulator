@@ -873,7 +873,7 @@ function EventCard({
   )
 }
 
-
+return (
      <div style={{ marginBottom: 22 }}>
     <img
       src={gameLogo}
@@ -885,7 +885,7 @@ function EventCard({
       }}
     />
     </div>
- 
+ )
 
   
   
@@ -1136,7 +1136,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             color: '#2a1f0e', margin: '0 0 6px',
             lineHeight: 1.08, letterSpacing: '-0.01em',
           }}>
-            Product Lead Simulator
+            Product Company Simulator
           </h1>
           <p style={{ fontSize: 15.5, color: '#7a5c30', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
             Learn how product decisions compound over time.
@@ -1360,7 +1360,7 @@ function GameScreen({
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 900, color: '#f0e0a8', fontSize: 17 }}>
-            Product Lead Simulator
+            Product Company Simulator
           </span>
           <span style={{ color: '#7a6040', fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }}>
             Head of Product · {stats.arr >= 1_000_000 ? `£${(stats.arr/1_000_000).toFixed(2)}M ARR` : `£${(stats.arr/1000).toFixed(0)}k ARR`}
