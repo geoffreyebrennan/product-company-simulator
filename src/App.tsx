@@ -154,6 +154,8 @@ const STAT_DEFS = [
 // ─── Event pool ───────────────────────────────────────────────────────────────
 
 const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
+ 
+    // ─── ENGINEERING ─────
   {
     domain: 'Engineering',
     headline: 'Legacy authentication system is slowing development',
@@ -358,6 +360,9 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Schedule a fix next sprint', deltas: { techDebt: -1, burnRate: 500, runway: -1, morale: -1 } },
     ],
   },
+
+    // ─── SALES ─────
+
   {
     domain: 'Sales',
     headline: 'Enterprise customer requests SAML SSO',
@@ -389,6 +394,102 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Create an enterprise tier', deltas: { arr: 40000, mrrGrowth: 4, burnRate: 2000 } },
     ],
   },
+ {
+    domain: 'Sales',
+    headline: 'Major prospect wants a steep discount to close before quarter end',
+    description: "A £90k logo is ready to sign, but only if you knock 40% off list price before Friday.",
+    choices: [
+      {
+        label: 'Grant the discount',
+        deltas: { arr: 54000, morale: -3, customerTrust: -4 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Sales',
+          headline: 'Discount sets a precedent — renewal pricing gets awkward',
+          description: 'The deal closed, but the account now expects the same rate at renewal, and word spread internally.',
+          causalityChain: [
+            'Granted 40% discount to close quarter',
+            'Deal booked, quarter target hit',
+            'Sales team began quoting similar discounts',
+            'Average deal size dropped',
+            'Renewal negotiation with the account turned tense',
+          ],
+          choices: [
+            { label: 'Formalise a discount policy', deltas: { arr: -10000, customerTrust: 6 } },
+            { label: 'Hold the line going forward', deltas: { morale: -4, arr: -15000 } },
+          ],
+        },
+      },
+      { label: 'Hold firm on price', deltas: { customerTrust: 3, arr: -20000 } },
+      { label: 'Offer a smaller concession', deltas: { arr: 20000, customerTrust: 1 } },
+      { label: 'Walk away from the deal', deltas: { morale: 2, arr: -30000, customerTrust: 4 } },
+    ],
+  },
+
+  {
+    domain: 'Sales',
+    headline: 'Sales wants a dedicated solutions engineer for enterprise deals',
+    description: "The team says enterprise deals are stalling in technical evaluation without dedicated support.",
+    choices: [
+      {
+        label: 'Hire one',
+        deltas: { burnRate: 9000, morale: 4, arr: 25000 },
+        consequence: {
+          monthsLater: 4,
+          domain: 'Sales',
+          headline: 'Solutions engineer shortens deal cycles',
+          description: 'Enterprise win rate improved and the sales team credits the new hire with faster technical sign-off.',
+          causalityChain: [
+            'Hired dedicated solutions engineer',
+            'Technical evaluations completed faster',
+            'Enterprise win rate improved',
+            'Sales cycle shortened by three weeks',
+            'ARR from enterprise segment increased',
+          ],
+          choices: [
+            { label: 'Hire a second SE', deltas: { burnRate: 9000, arr: 30000 } },
+            { label: 'Keep the team lean', deltas: { morale: 2, burnRate: -2000 } },
+          ],
+        },
+      },
+      { label: 'Reassign an existing engineer', deltas: { techDebt: 6, morale: -3, arr: 10000 } },
+      { label: 'Decline for now', deltas: { morale: -4, arr: -8000 } },
+      { label: 'Outsource to a contractor', deltas: { burnRate: 5000, techDebt: 3, arr: 12000 } },
+    ],
+  },
+
+  {
+    domain: 'Sales',
+    headline: 'A competitor undercuts your pricing mid-deal',
+    description: "A rival has quoted 25% below your price on an active enterprise deal in final review.",
+    choices: [
+      {
+        label: 'Match the price',
+        deltas: { arr: -15000, morale: -2, customerTrust: 2 },
+        consequence: {
+          monthsLater: 2,
+          domain: 'Sales',
+          headline: 'Price matching wins the deal but squeezes margin',
+          description: 'The deal closed, but finance flagged the account as sub-target margin going forward.',
+          causalityChain: [
+            'Matched competitor pricing to win the deal',
+            'Deal closed at reduced margin',
+            'Finance flagged account profitability',
+            'Pressure grew to upsell the account',
+          ],
+          choices: [
+            { label: 'Plan an upsell to recover margin', deltas: { arr: 10000, customerTrust: -2 } },
+            { label: 'Accept the lower margin', deltas: { morale: 1 } },
+          ],
+        },
+      },
+      { label: 'Compete on value instead', deltas: { customerTrust: 5, arr: 5000 } },
+      { label: 'Offer a bundled incentive', deltas: { arr: -5000, customerTrust: 3, mrrGrowth: 2 } },
+      { label: 'Let the deal go', deltas: { morale: -3, arr: -20000, customerTrust: 1 } },
+    ],
+  },
+
+  // ─── MARKETING ────────────────
   {
     domain: 'Marketing',
     headline: 'Competitor launches AI writing feature',
@@ -420,6 +521,100 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Respond with lower pricing', deltas: { arr: -20000, marketShare: 1.5, mrrGrowth: 3, customerTrust: -3 } },
     ],
   },
+ {
+    domain: 'Marketing',
+    headline: 'A viral post criticises your product\u2019s UX',
+    description: "A screenshot thread with 40k likes is calling your onboarding flow confusing. Support tickets are ticking up.",
+    choices: [
+      {
+        label: 'Respond publicly',
+        deltas: { customerTrust: 4, morale: -1 },
+        consequence: {
+          monthsLater: 1,
+          domain: 'Marketing',
+          headline: 'Public response cools the thread, sets expectations',
+          description: 'The public acknowledgement was well received, though it committed the team to a visible fix timeline.',
+          causalityChain: [
+            'Responded publicly to the criticism',
+            'Thread engagement cooled within days',
+            'Public commitment made to fix the issue',
+            'Team now under scrutiny to deliver',
+          ],
+          choices: [
+            { label: 'Deliver the fix on schedule', deltas: { customerTrust: 6, techDebt: 3 } },
+            { label: 'Slip the timeline quietly', deltas: { customerTrust: -6, morale: -3 } },
+          ],
+        },
+      },
+      { label: 'Fix the issue quietly', deltas: { techDebt: 4, customerTrust: 2, burnRate: 2000 } },
+      { label: 'Ignore it', deltas: { customerTrust: -6, morale: -2 } },
+      { label: 'Turn it into a feedback campaign', deltas: { customerTrust: 5, mrrGrowth: 2, burnRate: 1500 } },
+    ],
+  },
+
+  {
+    domain: 'Marketing',
+    headline: 'Budget available for a conference sponsorship',
+    description: "The industry's biggest annual conference has a main stage slot open, at a price that would use most of the quarter's marketing budget.",
+    choices: [
+      {
+        label: 'Sponsor the main stage',
+        deltas: { burnRate: 15000, arr: 10000, morale: 3 },
+        consequence: {
+          monthsLater: 2,
+          domain: 'Marketing',
+          headline: 'Main stage sponsorship drives a pipeline spike',
+          description: 'Brand visibility jumped and inbound leads spiked, though the cost per lead ran high.',
+          causalityChain: [
+            'Sponsored the conference main stage',
+            'Brand visibility increased sharply',
+            'Inbound leads spiked post-event',
+            'Cost per lead came in above target',
+          ],
+          choices: [
+            { label: 'Repeat the sponsorship next year', deltas: { burnRate: 15000, arr: 15000 } },
+            { label: 'Shift budget to lower-cost channels', deltas: { burnRate: -8000, mrrGrowth: 2 } },
+          ],
+        },
+      },
+      { label: 'Take a smaller booth', deltas: { burnRate: 5000, arr: 4000 } },
+      { label: 'Send the team to attend only', deltas: { burnRate: 1500, morale: 1 } },
+      { label: 'Decline, invest elsewhere', deltas: { burnRate: -3000, mrrGrowth: 2 } },
+    ],
+  },
+
+  {
+    domain: 'Marketing',
+    headline: 'An analyst report ranks you below two competitors',
+    description: "A widely-read analyst report just placed you third in the category, citing gaps in integrations and support.",
+    choices: [
+      {
+        label: 'Lobby the analyst with new data',
+        deltas: { burnRate: 3000, customerTrust: 1 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Marketing',
+          headline: 'Analyst relationship improves, ranking unchanged for now',
+          description: 'The analyst appreciated the follow-up briefing, but said the ranking would only move with product changes.',
+          causalityChain: [
+            'Briefed the analyst with updated data',
+            'Analyst relationship improved',
+            'Ranking held steady this cycle',
+            'Analyst flagged product gaps as the real blocker',
+          ],
+          choices: [
+            { label: 'Commit to closing the gaps', deltas: { techDebt: -4, burnRate: 5000 } },
+            { label: 'Keep lobbying instead', deltas: { burnRate: 3000, customerTrust: -2 } },
+          ],
+        },
+      },
+      { label: 'Ignore, focus on customers instead', deltas: { customerTrust: 4, morale: 2 } },
+      { label: 'Launch a campaign to counter the narrative', deltas: { burnRate: 6000, customerTrust: -1 } },
+      { label: 'Invest in the gaps the report identified', deltas: { techDebt: -5, burnRate: 8000, customerTrust: 3 } },
+    ],
+  },
+
+  // ─── FINANCE ─────────────────────────────────────────────
   {
     domain: 'Finance',
     headline: 'Cash runway now under 10 months',
@@ -451,6 +646,101 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Freeze all new hiring', deltas: { burnRate: -5000, morale: -10, runway: 3, mrrGrowth: -2 } },
     ],
   },
+
+  {
+    domain: 'Finance',
+    headline: 'Investors request a growth acceleration plan',
+    description: "The board wants a plan to roughly double growth rate over the next two quarters ahead of the next raise.",
+    choices: [
+      {
+        label: 'Commit to aggressive targets',
+        deltas: { burnRate: 12000, morale: -4, mrrGrowth: 6 },
+        consequence: {
+          monthsLater: 3,
+          domain: 'Finance',
+          headline: 'Aggressive targets strain the team, growth partly delivers',
+          description: 'Growth accelerated but fell short of the committed number, and the team is visibly stretched.',
+          causalityChain: [
+            'Committed to aggressive growth targets',
+            'Spending ramped to support the push',
+            'Growth accelerated but missed target',
+            'Team showed signs of burnout',
+          ],
+          choices: [
+            { label: 'Reset expectations with the board', deltas: { morale: 3, customerTrust: 1 } },
+            { label: 'Push the team harder', deltas: { morale: -6, mrrGrowth: 3 } },
+          ],
+        },
+      },
+      { label: 'Propose a conservative plan', deltas: { morale: 2, mrrGrowth: 1 } },
+      { label: 'Push back on the timeline', deltas: { morale: 1, customerTrust: 0 } },
+      { label: 'Raise a bridge round instead', deltas: { burnRate: 3000, morale: -1 } },
+    ],
+  },
+
+  {
+    domain: 'Finance',
+    headline: 'An unexpected large invoice from a vendor is due',
+    description: "A key infrastructure vendor has sent an invoice significantly larger than budgeted, due in 15 days.",
+    choices: [
+      {
+        label: 'Pay in full immediately',
+        deltas: { burnRate: 10000, morale: 0 },
+        consequence: {
+          monthsLater: 1,
+          domain: 'Finance',
+          headline: 'Invoice paid, budget tightens elsewhere',
+          description: 'The payment cleared cleanly, but finance had to trim spend in other areas to absorb it.',
+          causalityChain: [
+            'Paid the vendor invoice in full',
+            'Cash position tightened for the month',
+            'Other budget lines trimmed to compensate',
+          ],
+          choices: [
+            { label: 'Renegotiate the vendor contract', deltas: { burnRate: -4000, customerTrust: 0 } },
+            { label: 'Absorb it and move on', deltas: { morale: -1 } },
+          ],
+        },
+      },
+      { label: 'Negotiate a payment plan', deltas: { burnRate: 3000, customerTrust: 0 } },
+      { label: 'Delay payment', deltas: { customerTrust: -2, morale: -1 } },
+      { label: 'Dispute the invoice', deltas: { burnRate: -2000, customerTrust: -1, morale: -1 } },
+    ],
+  },
+
+  {
+    domain: 'Finance',
+    headline: 'The board proposes a stock option refresh for the team',
+    description: "With retention risk rising, the board has proposed refreshing option grants for the whole team.",
+    choices: [
+      {
+        label: 'Approve it',
+        deltas: { morale: 7, burnRate: 0, techDebt: 0 },
+        consequence: {
+          monthsLater: 4,
+          domain: 'Finance',
+          headline: 'Refresh lifts morale, dilution raises questions at the next raise',
+          description: 'Retention improved noticeably, but new investors flagged the dilution during diligence.',
+          causalityChain: [
+            'Approved the option refresh',
+            'Team morale and retention improved',
+            'Cap table dilution increased',
+            'New investors raised questions during diligence',
+          ],
+          choices: [
+            { label: 'Address dilution proactively with investors', deltas: { customerTrust: 1 } },
+            { label: 'Hold firm on the refresh decision', deltas: { morale: 2 } },
+          ],
+        },
+      },
+      { label: 'Approve a reduced version', deltas: { morale: 3 } },
+      { label: 'Delay to next quarter', deltas: { morale: -3 } },
+      { label: 'Decline, preserve runway', deltas: { morale: -6, burnRate: -3000 } },
+    ],
+  },
+
+
+
   {
     domain: 'Partners',
     headline: 'Partner delayed implementing integration',
@@ -482,6 +772,9 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Divert engineers from current projects', deltas: { burnRate: -5000, morale: -10, runway: 3, mrrGrowth: -2 } },
     ],
   },
+
+    // ─── CUSTOMERS ───────────────────────────────────────────
+
   {
     domain: 'Customers',
     headline: 'Monthly churn increased by 3%',
@@ -513,6 +806,101 @@ const EVENT_POOL: Omit<GameEvent, 'id'>[] = [
       { label: 'Offer discounts to at-risk accounts', deltas: { retention: 4, arr: -25000, customerTrust: 3 } },
     ],
   },
+
+  {
+    domain: 'Customers',
+    headline: 'A key customer threatens to leave over a missing feature',
+    description: "Your largest account says they'll churn at renewal unless a specific feature ships within the quarter.",
+    choices: [
+      {
+        label: 'Fast-track the feature',
+        deltas: { techDebt: 7, arr: 20000, morale: -3, burnRate: 5000 },
+        consequence: {
+          monthsLater: 2,
+          domain: 'Customers',
+          headline: 'Fast-tracked feature retains the account, roadmap slips',
+          description: 'The account renewed, but other roadmap commitments slipped by several weeks as a result.',
+          causalityChain: [
+            'Fast-tracked the requested feature',
+            'Key account renewed on schedule',
+            'Engineering roadmap deprioritised elsewhere',
+            'Other commitments slipped by weeks',
+          ],
+          choices: [
+            { label: 'Renegotiate roadmap with other customers', deltas: { customerTrust: -2 } },
+            { label: 'Absorb the delay quietly', deltas: { morale: -2 } },
+          ],
+        },
+      },
+      { label: 'Offer a workaround', deltas: { customerTrust: 1, arr: 10000 } },
+      { label: 'Offer a discount to retain them', deltas: { arr: 5000, customerTrust: -1 } },
+      { label: 'Let them go', deltas: { arr: -25000, morale: 2, customerTrust: 0 } },
+    ],
+  },
+
+  {
+    domain: 'Customers',
+    headline: 'Support ticket volume spikes after a recent release',
+    description: "Tickets have tripled since Tuesday's release. The support team is behind and customers are noticing.",
+    choices: [
+      {
+        label: 'Roll back the release',
+        deltas: { techDebt: -2, morale: 2, customerTrust: 2, arr: -3000 },
+        consequence: {
+          monthsLater: 1,
+          domain: 'Customers',
+          headline: 'Rollback stabilises support, delays the roadmap',
+          description: 'Ticket volume returned to normal quickly, but the delayed release pushed other launches back.',
+          causalityChain: [
+            'Rolled back the problematic release',
+            'Ticket volume normalised within days',
+            'Release rescheduled after further testing',
+            'Downstream roadmap items delayed',
+          ],
+          choices: [
+            { label: 'Add QA before next release', deltas: { techDebt: -3, burnRate: 2000 } },
+            { label: 'Re-ship on the original timeline', deltas: { techDebt: 4, customerTrust: -2 } },
+          ],
+        },
+      },
+      { label: 'Ship a rapid hotfix', deltas: { techDebt: 3, customerTrust: 2, burnRate: 2000 } },
+      { label: 'Add temporary support staff', deltas: { burnRate: 4000, customerTrust: 3 } },
+      { label: 'Monitor and wait', deltas: { customerTrust: -4, morale: -2 } },
+    ],
+  },
+
+  {
+    domain: 'Customers',
+    headline: 'A customer advocate offers a public testimonial',
+    description: "One of your happiest customers has offered to go on record publicly about their results with the product.",
+    choices: [
+      {
+        label: 'Feature it prominently in marketing',
+        deltas: { arr: 8000, customerTrust: 4, mrrGrowth: 3 },
+        consequence: {
+          monthsLater: 2,
+          domain: 'Customers',
+          headline: 'Testimonial becomes a top-converting asset',
+          description: 'The testimonial outperformed other marketing assets and prompted requests for more customer stories.',
+          causalityChain: [
+            'Featured the testimonial prominently',
+            'Asset became a top converter on the site',
+            'Sales began requesting it in every deal',
+            'Demand grew for additional customer stories',
+          ],
+          choices: [
+            { label: 'Build a customer story programme', deltas: { burnRate: 3000, mrrGrowth: 3 } },
+            { label: 'Keep it as a one-off', deltas: { morale: 1 } },
+          ],
+        },
+      },
+      { label: 'Use it quietly in sales conversations', deltas: { arr: 4000, customerTrust: 2 } },
+      { label: 'Decline, avoid the spotlight', deltas: { customerTrust: 1, morale: -1 } },
+      { label: 'Ask for a case study instead', deltas: { burnRate: 1000, customerTrust: 3, arr: 3000 } },
+    ],
+  },
+
+
   {
     domain: 'Engineering',
     headline: 'CI/CD pipeline takes 45 minutes — devs are frustrated',
@@ -601,6 +989,16 @@ const CAUSALITY_CHAINS = {
       'Feature velocity dropped 40%',
       'Releases slowed from weekly to monthly',
       'Engineer morale declined — attrition risk rising',
+    ],
+  },
+   motivation: {
+    title: 'Team motivation',
+    steps: [
+      'Team weary of product-market-fit issues',
+      'Morale rate dropped to 12%',
+      'Employee engagement plateaued last two quarters',
+      'Employe ENPS scores not high',
+      'Glassdoor positive reviews are down',
     ],
   },
 }
