@@ -64,12 +64,12 @@ interface BoardQuestion {
 // ─── Domain config ────────────────────────────────────────────────────────────
 
 const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }> = {
-  Engineering: { color: '#d1fce7', bg: '#5b4fcf', icon: '⚙' },
-  Sales:       { color: '#d1fce7', bg: '#0e7a48', icon: '📈' },
-  Marketing:   { color: '#d1fce7', bg: '#c4500a', icon: '📣' },
+  Engineering: { color: '#9ad6f4', bg: '#5b4fcf', icon: '⚙' },
+  Sales:       { color: '#9ad6f4', bg: '#0e7a48', icon: '📈' },
+  Marketing:   { color: '#9ad6f4', bg: '#c4500a', icon: '📣' },
   Finance:     { color: '#07162C', bg: ' #1a60c4', icon: '💰' },
-  Customers:   { color: '#d1fce7', bg: '#dda327', icon: '👥' },
-  Partners:    { color: '#d1fce7', bg: '#0e3c7c', icon: '🤝' },
+  Customers:   { color: '#9ad6f4', bg: '#dda327', icon: '👥' },
+  Partners:    { color: '#9ad6f4', bg: '#0e3c7c', icon: '🤝' },
 }
 
 // ─── Starting stats ───────────────────────────────────────────────────────────
@@ -1361,9 +1361,9 @@ function EventCard({
               style={{
                 background: chosen ? '#0F8F36' : '#244470',
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#47BDFA'}`,
-                borderRadius: 10, padding: '9px 13px',
-                fontSize: 14, fontWeight: 700,
-                color: chosen ? '#d1fce7' : dimmed ? '#47BDFA' : '#d1fce7',
+                borderRadius: 10, padding: '12px 16px',
+                fontSize: 16, fontWeight: 700,
+                color: chosen ? '#9ad6f4' : dimmed ? '#47BDFA' : '#9ad6f4',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
                 opacity: dimmed ? 0.55 : 1,
@@ -1515,7 +1515,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
                       onClick={() => setAnswers(p => { const n = [...p]; n[qi] = ai; return n })}
                       style={{
                         width: '100%',
-                        background: chosen ? (a.honest ? '#d1fce7' : '#fde8e8') : '#47BDFA',
+                        background: chosen ? (a.honest ? '#9ad6f4' : '#fde8e8') : '#47BDFA',
                         border: `1.5px solid ${chosen ? (a.honest ? '#2d7a45' : '#c46060') : '#47BDFA'}`,
                         borderRadius: 10, padding: '9px 14px',
                         fontSize: 14.5, fontWeight: 600,
@@ -1696,7 +1696,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           style={{
             display: 'block', width: '100%',
             background: sel ? '#0F8F36' : '#244470',
-            color: sel ?  '#d1fce7':'#9DDBFB', border: sel ? '3px solid #d1fce7':'none', borderRadius: 50,
+            color: sel ?  '#9ad6f4':'#9DDBFB', border: sel ? '3px solid #9ad6f4':'none', borderRadius: 50,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
@@ -2001,7 +2001,7 @@ function GameScreen({
           style={{
             display: 'block', width: '100%',
             background: canEndMonth ? '#0F8F36' : '#07162C',
-            color: canEndMonth ? '#d1fce7':'#9DDBFB', border: canEndMonth ? '3px solid #d1fce7': 'none', borderRadius: 14,
+            color: canEndMonth ? '#9ad6f4':'#9DDBFB', border: canEndMonth ? '3px solid #9ad6f4': 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.05em',
