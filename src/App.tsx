@@ -1306,7 +1306,7 @@ function EventCard({
         background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
         border: `2px solid ${event.isConsequence ? '#c86060' : '#244470'}`,
         borderRadius: 16, padding: 18,
-        boxShadow: '0 4px 18px rgba(80,50,10,0.11), 0 1px 0 rgba(255,255,255,0.88) inset',
+        boxShadow: '0 4px 18px rgba(80,50,10,0.11), 0 1px 0 rgba(255,255,255,0.66) inset',
         display: 'flex', flexDirection: 'column', gap: 12,
       }}
     >
@@ -1655,14 +1655,14 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 key={sc.id}
                 onClick={() => setSel(sc.id)}
                 style={{
-                  background: active ? 'linear-gradient(35deg, #0F8F36 0%, #0F8F36 60%, #34AA58 100%)' : 'linear-gradient(35deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
-                  border: `2px solid ${active ? '#3a6a49' : '#47BDFA'}`,
+                  background: active ? 'linear-gradient(35deg, #075c21 0%, #0F8F36 60%, #34AA58 100%)' : 'linear-gradient(35deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
+                  border: `2px solid ${active ? '#3a6a49' : '#244470'}`,
                   borderRadius: 16, padding: '18px 18px 16px',
                   cursor: 'pointer', textAlign: 'left',
                   transition: 'all 0.2s ease',
                   boxShadow: active
                     ? '0 6px 24px rgba(74,124,89,0.38)'
-                    : '0 4px 14px rgba(80,50,10,0.09), 0 1px 0 rgba(255,255,255,0.88) inset',
+                    : '0 4px 14px rgba(80,50,10,0.09), 0 1px 0 rgba(255,255,255,0.66) inset',
                 }}
               >
                 
@@ -1933,7 +1933,7 @@ function GameScreen({
                     color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#47BDFA'),
                   }}>{bar.pct.toFixed(0)}%</span>
                 </div>
-                <div style={{ background: '#0F34B6', borderRadius: 4, height: 8, overflow: 'hidden' }}>
+                <div style={{ background: '#010F22', borderRadius: 5, height: 10, overflow: 'hidden' }}>
                   <div style={{
                     width: `${bar.pct}%`, height: '100%',
                     background: `linear-gradient(90deg, ${bar.color1}, ${bar.color2})`,
@@ -1969,7 +1969,7 @@ function GameScreen({
           background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)', border: '1px solid #244470',
           borderRadius: 12, padding: '12px 16px', marginBottom: 16,
         }}>
-          <div style={{ fontSize: 12, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 9 }}>
+          <div style={{ fontSize: 12, fontWeight: 800, color: '#47BDFA', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 9 }}>
             ⛓ Decision Causality — trace how past decisions compound
           </div>
           <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
