@@ -64,12 +64,12 @@ interface BoardQuestion {
 // ─── Domain config ────────────────────────────────────────────────────────────
 
 const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }> = {
-  Engineering: { color: '#5b4fcf', bg: '#ede9fe', icon: '⚙' },
-  Sales:       { color: '#0e7a48', bg: '#d1fce7', icon: '📈' },
-  Marketing:   { color: '#c4500a', bg: '#9DDBFB0e8', icon: '📣' },
-  Finance:     { color: '#a07008', bg: '#fef9d8', icon: '💰' },
-  Customers:   { color: '#1a60c4', bg: '#e8f3ff', icon: '👥' },
-  Partners:    { color: '#0e3c7c', bg: '#e8f3ff', icon: '🤝' },
+  Engineering: { color: '#d1fce7', bg: '#5b4fcf', icon: '⚙' },
+  Sales:       { color: '#d1fce7', bg: '#0e7a48', icon: '📈' },
+  Marketing:   { color: '#d1fce7', bg: '#c4500a', icon: '📣' },
+  Finance:     { color: '#07162C', bg: '#dda327', icon: '💰' },
+  Customers:   { color: '#d1fce7', bg: '#1a60c4', icon: '👥' },
+  Partners:    { color: '#d1fce7', bg: '#0e3c7c', icon: '🤝' },
 }
 
 // ─── Starting stats ───────────────────────────────────────────────────────────
@@ -1100,7 +1100,7 @@ function getHealthSummary(stats: Stats): { text: string; color: string } {
   if (stats.runway < 9) return { text: 'Runway under 9 months. Consider financing options.', color: '#47BDFA' }
   if (stats.mrrGrowth > 15 && stats.retention > 90) return { text: 'Strong growth engine with solid retention — compounding well.', color: '#2a6a3a' }
   if (stats.nps > 60) return { text: `Exceptional NPS of ${Math.round(stats.nps)} — customers are advocates.`, color: '#2a6a3a' }
-  return { text: 'Steady as she goes. Monitor tech debt and runway closely.', color: '#2a4a6a' }
+  return { text: 'Steady as she goes. Monitor tech debt and runway closely.', color: '#47BDFA' }
 }
 
 function getInGameDate(month: number): string {
@@ -1200,8 +1200,8 @@ function DomainBadge({ domain }: { domain: Domain }) {
       display: 'inline-flex', alignItems: 'center', gap: 4,
       background: cfg.bg, color: cfg.color,
       border: `1.5px solid ${cfg.color}55`,
-      borderRadius: 20, padding: '2px 9px',
-      fontSize: 11, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
+      borderRadius: 50, padding: '2px 9px',
+      fontSize: 14, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
       whiteSpace: 'nowrap',
     }}>
       {cfg.icon} {domain}
@@ -1233,7 +1233,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
       >
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 20 }}>
           <div>
-            <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
+            <div style={{ fontSize: 10, fontWeight: 800, color: '#47BDFA', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
               ⛓ Why did this happen?
             </div>
             <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#47BDFA', fontFamily: "'Lexend', sans-serif" }}>
@@ -1362,7 +1362,7 @@ function EventCard({
                 background: chosen ? '#0F8F36' : '#9DDBFB',
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#47BDFA'}`,
                 borderRadius: 10, padding: '9px 13px',
-                fontSize: 13, fontWeight: 700,
+                fontSize: 14, fontWeight: 700,
                 color: chosen ? '#9DDBFB' : dimmed ? '#b0986a' : '#010C1B',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
@@ -1533,7 +1533,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
                         border: `1px solid ${a.honest ? '#86efac' : '#fca5a5'}`,
                         borderTop: 'none',
                         borderRadius: '0 0 8px 8px', padding: '8px 14px',
-                        fontSize: 13, color: a.honest ? '#166534' : '#991b1b',
+                        fontSize: 16, color: a.honest ? '#166534' : '#991b1b',
                         fontStyle: 'italic', lineHeight: 1.55,
                         fontFamily: "'Nunito', sans-serif",
                       }}>
@@ -1668,15 +1668,15 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
   <div style={{ fontSize: 36 }}>{sc.emoji}</div>
-  <div style={{ fontSize: 18, fontWeight: 900, color: active ? '#244470' : '#9DDBFB', fontFamily: "'Lexend', sans-serif" }}>
+  <div style={{ fontSize: 18, fontWeight: 900, color: active ? '#0A1E37' : '#9DDBFB', fontFamily: "'Lexend', sans-serif" }}>
     {sc.name}
   </div>
 </div>
                 
-                <div style={{ fontSize: 14, color: active ? '#244470' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
+                <div style={{ fontSize: 14, color: active ? '#0A1E37' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
                   {sc.desc}
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? '#0F8F36' : '#47BDFA'}`, paddingTop: 10 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? '#0A1E37' : '#47BDFA'}`, paddingTop: 10 }}>
                   {sc.stats.map(s => (
                     <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 16 }}>
                       <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#47BDFA', fontWeight: 600 }}>{s.l}</span>
@@ -1947,7 +1947,7 @@ function GameScreen({
 
         {/* Events section */}
         <div style={{ marginBottom: 14 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 11 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, color: '#47BDFA', letterSpacing: '0.1em', marginBottom: 11 }}>
             This Month — Make Your Decisions
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
