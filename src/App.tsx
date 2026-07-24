@@ -1695,7 +1695,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           style={{
             display: 'block', width: '100%',
             background: sel ? '#0F8F36' : '#244470',
-            color: sel ? '#07162C':'#9DDBFB', border: 'none', borderRadius: 14,
+            color: sel ? '#07162C':'#9DDBFB', border: 'none', borderRadius: 50,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
@@ -1703,7 +1703,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             transition: 'all 0.2s ease',
           }}
         >
-          {sel ? 'Begin → Month 1' : 'Select a scenario to begin'}
+          {sel ? '▶️ Begin → Month 1' : 'Select a scenario to begin'}
         </button>
       </div>
     </div>
@@ -1913,7 +1913,7 @@ function GameScreen({
 
         {/* Velocity vs debt bars */}
         <div style={{
-          background: '#9DDBFB', border: '1.5px solid #244470',
+          background: '#041838', border: '1.5px solid #244470',
           borderRadius: 12, padding: '13px 16px', marginBottom: 18,
           boxShadow: '0 2px 8px rgba(80,50,10,0.07)',
         }}>
