@@ -1876,10 +1876,10 @@ function GameScreen({
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {/* Progress bar */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 100, height: 6, background: '#0A1E37', borderRadius: 3, overflow: 'hidden' }}>
+            <div style={{ width: 100, height: 12, background: '#0A1E37', borderRadius: 12, overflow: 'hidden' }}>
               <div style={{ width: `${pct}%`, height: '100%', background: '#47BDFA', borderRadius: 3, transition: 'width 0.4s ease' }}/>
             </div>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#0F34B6', fontSize: 11 }}>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#47BDFA', fontSize: 12 }}>
               M{month}/60
             </span>
           </div>
