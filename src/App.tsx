@@ -1279,7 +1279,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
           onClick={onClose}
           style={{
             marginTop: 20, width: '100%',
-            background: '#4a7c59', color: '#fff', border: 'none',
+            background: '#0F8F36', color: '#fff', border: 'none',
             borderRadius: 10, padding: '11px 0',
             fontSize: 14, fontWeight: 700, cursor: 'pointer',
             fontFamily: "'Nunito', sans-serif",
@@ -1359,7 +1359,7 @@ function EventCard({
               disabled={isLocked}
               onClick={() => onChoose(i)}
               style={{
-                background: chosen ? '#4a7c59' : '#fff',
+                background: chosen ? '#0F8F36' : '#fff',
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#c8a860'}`,
                 borderRadius: 10, padding: '9px 13px',
                 fontSize: 13, fontWeight: 700,
@@ -1412,8 +1412,8 @@ function ArrChart({ history }: { history: number[] }) {
     <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', overflow: 'visible' }}>
       <defs>
         <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#4a7c59" stopOpacity="0.22"/>
-          <stop offset="100%" stopColor="#4a7c59" stopOpacity="0.02"/>
+          <stop offset="0%" stopColor="#0F8F36" stopOpacity="0.22"/>
+          <stop offset="100%" stopColor="#0F8F36" stopOpacity="0.02"/>
         </linearGradient>
       </defs>
       {[0, 0.25, 0.5, 0.75, 1].map(t => (
@@ -1421,11 +1421,11 @@ function ArrChart({ history }: { history: number[] }) {
           stroke="#244470" strokeWidth="0.6" strokeDasharray="3,5"/>
       ))}
       <polygon points={area} fill="url(#ag)"/>
-      <polyline points={line} fill="none" stroke="#4a7c59" strokeWidth="2.5"
+      <polyline points={line} fill="none" stroke="#0F8F36" strokeWidth="2.5"
         strokeLinejoin="round" strokeLinecap="round"/>
       {[0, Math.floor((history.length-1)/2), history.length-1].map(i => (
         <circle key={i} cx={pts[i].x} cy={pts[i].y} r={4}
-          fill="#4a7c59" stroke="#9DDBFB" strokeWidth="2"/>
+          fill="#0F8F36" stroke="#9DDBFB" strokeWidth="2"/>
       ))}
       {[min, min + range*0.5, max].map((v, i) => (
         <text key={i} x={pL-4} y={pT + iH - i*(iH/2) + 4}
@@ -1566,7 +1566,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
           <button
             onClick={onDone}
             style={{
-              width: '100%', background: '#4a7c59',
+              width: '100%', background: '#0F8F36',
               color: '#fff', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
               cursor: 'pointer', fontFamily: "'Lexend', sans-serif",
@@ -1633,10 +1633,10 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           }}>
             Product Company Simulator
           </h1></div>
-          <p style={{ fontSize: 15.5, color: '#9DDBFB', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
+          <p style={{ fontSize: 15.5,color: '#9DDBFB', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
             Learn how product decisions compound over time.
           </p>
-          <p style={{ fontSize: 14.5, color: '#47BDFA', lineHeight: 1.72, maxWidth: 530, margin: '0 auto' }}>
+          <p style={{ fontSize: 14.5, textAlign: 'justify', color: '#47BDFA', lineHeight: 1.72, maxWidth: 530, margin: '0 auto', }}>
             You're the new Head of Product at a fast-growing SaaS startup. Every month you'll face real decisions
             — engineering trade-offs, sales pressures, hiring calls, customer crises. Some choices ripple forward
             in ways you won't see for months. Play across 60 months and discover what kind of company you build.
@@ -1644,7 +1644,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
         </div>
 
         {/* Scenario cards */}
-        <div style={{ fontSize: 11, fontWeight: 800, color: '#47BDFA', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: 'center', marginBottom: 14 }}>
+        <div style={{ fontSize: 11, fontWeight: 800, color: '#47BDFA', letterSpacing: '0.12em', textAlign: 'center', marginBottom: 14 }}>
           Choose Your Starting Scenario
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14, marginBottom: 22 }}>
@@ -1655,7 +1655,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 key={sc.id}
                 onClick={() => setSel(sc.id)}
                 style={{
-                  background: active ? '#4a7c59' : '#9DDBFB',
+                  background: active ? 'linear-gradient(155deg, #0F8F36 0%, #0F8F36 60%, #34AA58 100%)' : 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
                   border: `2px solid ${active ? '#3a6a49' : '#c8a860'}`,
                   borderRadius: 16, padding: '18px 18px 16px',
                   cursor: 'pointer', textAlign: 'left',
@@ -1690,7 +1690,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           onClick={() => sel && onBegin(sel)}
           style={{
             display: 'block', width: '100%',
-            background: sel ? '#4a7c59' : '#244470',
+            background: sel ? '#0F8F36' : '#244470',
             color: '#fff', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
@@ -1739,7 +1739,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(155deg, #031124 0%, #041838 60%, #eee0c5 100%)',
+      background: 'linear-gradient(155deg, #031124 0%, #041838 60%, #041838 100%)',
       fontFamily: "'Nunito', sans-serif",
       display: 'flex', flexDirection: 'column', alignItems: 'center',
       padding: '48px 20px 60px',
@@ -1806,7 +1806,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
           onClick={onRestart}
           style={{
             display: 'block', width: '100%',
-            background: 'linear-gradient(160deg,#4a7c59,#34AA58', color: '#fff', border: 'none',
+            background: 'linear-gradient(160deg,#0F8F36,#34AA58', color: '#fff', border: 'none',
             borderRadius: 14, padding: '16px 0',
             fontSize: 18, fontWeight: 800, cursor: 'pointer',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
@@ -1915,7 +1915,7 @@ function GameScreen({
         }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
             {[
-              { label: 'Feature Velocity', pct: vel, good: true, color1: '#4a7c59', color2: '#7ab840' },
+              { label: 'Feature Velocity', pct: vel, good: true, color1: '#0F8F36', color2: '#7ab840' },
               { label: 'Technical Debt',   pct: stats.techDebt, good: false, color1: '#d4800a', color2: '#a02020' },
             ].map(bar => (
               <div key={bar.label}>
