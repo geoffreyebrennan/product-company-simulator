@@ -1703,7 +1703,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             transition: 'all 0.2s ease',
           }}
         >
-          {sel ? '▶️ Begin → Month 1' : 'Select a scenario to begin'}
+          {sel ? '👉  Begin → Month 1' : 'Select a scenario to begin'}
         </button>
       </div>
     </div>
@@ -1997,7 +1997,7 @@ function GameScreen({
           onClick={onEndMonth}
           style={{
             display: 'block', width: '100%',
-            background: canEndMonth ? '#2a4a6a' : '#07162C',
+            background: canEndMonth ? '#0F8F36' : '#07162C',
             color: '#9DDBFB', border: 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
@@ -2007,7 +2007,7 @@ function GameScreen({
           }}
         >
           {canEndMonth
-            ? `End Month ${month} — Advance to ${getInGameDate(month + 1)} →`
+            ? `👉 End Month ${month} — Advance to ${getInGameDate(month + 1)} →`
             : `Decide on all ${events.filter(e => !(e.id in chosenMap)).length} remaining event${events.filter(e => !(e.id in chosenMap)).length !== 1 ? 's' : ''} to continue`}
         </button>
       </div>
