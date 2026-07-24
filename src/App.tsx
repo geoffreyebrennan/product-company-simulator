@@ -1879,9 +1879,7 @@ function GameScreen({
             <div style={{ width: 300, height: 12, background: '#0A1E37', borderRadius: 12, overflow: 'hidden' }}>
               <div style={{ width: `${pct}%`, height: '100%', background: '#47BDFA', borderRadius: 3, transition: 'width 0.4s ease' }}/>
             </div>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#47BDFA', fontSize: 12 }}>
-              M{month}/60
-            </span>
+           
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 800, color: '#47BDFA', fontSize: 14 }}>
