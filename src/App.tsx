@@ -1363,7 +1363,7 @@ function EventCard({
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#47BDFA'}`,
                 borderRadius: 10, padding: '9px 13px',
                 fontSize: 14, fontWeight: 700,
-                color: chosen ? '#d1fce7' : dimmed ? '#47BDFA' : '#47BDFA',
+                color: chosen ? '#d1fce7' : dimmed ? '#47BDFA' : '#d1fce7',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
                 opacity: dimmed ? 0.55 : 1,
