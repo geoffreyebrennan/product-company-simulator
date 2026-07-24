@@ -67,8 +67,8 @@ const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }>
   Engineering: { color: '#d1fce7', bg: '#5b4fcf', icon: '⚙' },
   Sales:       { color: '#d1fce7', bg: '#0e7a48', icon: '📈' },
   Marketing:   { color: '#d1fce7', bg: '#c4500a', icon: '📣' },
-  Finance:     { color: '#07162C', bg: '#dda327', icon: '💰' },
-  Customers:   { color: '#d1fce7', bg: '#1a60c4', icon: '👥' },
+  Finance:     { color: '#07162C', bg: ' #1a60c4', icon: '💰' },
+  Customers:   { color: '#d1fce7', bg: '#dda327', icon: '👥' },
   Partners:    { color: '#d1fce7', bg: '#0e3c7c', icon: '🤝' },
 }
 
@@ -1200,8 +1200,8 @@ function DomainBadge({ domain }: { domain: Domain }) {
       display: 'inline-flex', alignItems: 'center', gap: 4,
       background: cfg.bg, color: cfg.color,
       border: `1.5px solid ${cfg.color}55`,
-      borderRadius: 50, padding: '2px 9px',
-      fontSize: 14, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
+      borderRadius: 50, padding: '3px 12px',
+      fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
       whiteSpace: 'nowrap',
     }}>
       {cfg.icon} {domain}
@@ -1325,10 +1325,10 @@ function EventCard({
             </span>
           )}
         </div>
-        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#9DDBFB', fontFamily: "'Lexend', sans-serif", lineHeight: 1.3 }}>
+        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#9DDBFB', fontFamily: "'Lexend', sans-serif", lineHeight: 2.0 }}>
           {event.headline}
         </h3>
-        <p style={{ margin: 0, fontSize: 13, color: '#9DDBFB', lineHeight: 1.55 }}>
+        <p style={{ margin: 0, fontSize: 14, fontWeight:500, color: '#9DDBFB', lineHeight: 2.0 }}>
           {event.description}
         </p>
       </div>
@@ -1340,7 +1340,7 @@ function EventCard({
             alignSelf: 'flex-start',
             background: '#f5edd0', border: '1.5px solid #47BDFA',
             borderRadius: 8, padding: '5px 12px',
-            fontSize: 12, fontWeight: 700, color: '#7a5020',
+            fontSize: 12, fontWeight: 700, color: '#0A1E37',
             cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5,
             fontFamily: "'Nunito', sans-serif",
           }}
@@ -1980,7 +1980,7 @@ function GameScreen({
                 style={{
                   background: '#9DDBFB', border: '1.5px solid #47BDFA',
                   borderRadius: 8, padding: '5px 11px',
-                  fontSize: 12, fontWeight: 700, color: '#7a5020',
+                  fontSize: 12, fontWeight: 700, color: '#0A1E37',
                   cursor: 'pointer', fontFamily: "'Nunito', sans-serif",
                   transition: 'background 0.15s',
                 }}
@@ -1998,7 +1998,7 @@ function GameScreen({
           style={{
             display: 'block', width: '100%',
             background: canEndMonth ? '#0F8F36' : '#07162C',
-            color: canEndMonth ? '#07162C':'#9DDBFB', border: 'none', borderRadius: 14,
+            color: canEndMonth ? '#d1fce7':'#9DDBFB', border: canEndMonth ? '3px solid #d1fce7': 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.05em',
