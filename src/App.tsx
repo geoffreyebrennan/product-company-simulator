@@ -1097,7 +1097,7 @@ function getHealthSummary(stats: Stats): { text: string; color: string } {
   if (stats.runway < 4) return { text: 'CRITICAL: runway is nearly exhausted. Immediate action required.', color: '#a02020' }
   if (stats.techDebt > 70 && stats.morale < 45) return { text: 'High technical debt is crushing morale. Velocity at risk.', color: '#a02020' }
   if (stats.retention < 78) return { text: 'Retention is falling — churn is compounding. Investigate root causes.', color: '#a04010' }
-  if (stats.runway < 9) return { text: 'Runway under 9 months. Consider financing options.', color: '#a06010' }
+  if (stats.runway < 9) return { text: 'Runway under 9 months. Consider financing options.', color: '#47BDFA' }
   if (stats.mrrGrowth > 15 && stats.retention > 90) return { text: 'Strong growth engine with solid retention — compounding well.', color: '#2a6a3a' }
   if (stats.nps > 60) return { text: `Exceptional NPS of ${Math.round(stats.nps)} — customers are advocates.`, color: '#2a6a3a' }
   return { text: 'Steady as she goes. Monitor tech debt and runway closely.', color: '#2a4a6a' }
@@ -1163,7 +1163,7 @@ function StatCard({ def, value, prevValue }: { def: StatDef; value: number; prev
   const good = (diff > 0 && def.goodDir > 0) || (diff < 0 && def.goodDir < 0)
   const bad  = (diff > 0 && def.goodDir < 0) || (diff < 0 && def.goodDir > 0)
   const warn = def.warn(value)
-  const valueColor = warn ? (def.goodDir > 0 ? '#a02020' : '#a06010') : '#010C1B'
+  const valueColor = warn ? (def.goodDir > 0 ? '#a02020' : '#47BDFA') : '#010C1B'
 
   return (
     <div style={{
@@ -1486,7 +1486,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
       }}
     />
           </div>
-          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif" }}>
+          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010c1b', fontFamily: "'Lexend', sans-serif" }}>
             The board has questions.
           </h2>
           <p style={{ margin: 0, fontSize: 13.5, color: '#9DDBFB', lineHeight: 1.5 }}>
@@ -1710,9 +1710,9 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
 
 function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats[]; onRestart: () => void }) {
   const tdStatus  = stats.techDebt > 70 ? 'Critical' : stats.techDebt > 45 ? 'Strained' : 'Healthy'
-  const tdColor   = stats.techDebt > 70 ? '#a02020' : stats.techDebt > 45 ? '#a06010' : '#2a6a3a'
+  const tdColor   = stats.techDebt > 70 ? '#a02020' : stats.techDebt > 45 ? '#47BDFA' : '#2a6a3a'
   const ivSent    = stats.morale > 70 && stats.mrrGrowth > 10 ? 'Bullish' : stats.runway > 12 ? 'Cautious' : 'Concerned'
-  const ivColor   = ivSent === 'Bullish' ? '#2a6a3a' : ivSent === 'Concerned' ? '#a02020' : '#a06010'
+  const ivColor   = ivSent === 'Bullish' ? '#2a6a3a' : ivSent === 'Concerned' ? '#a02020' : '#47BDFA'
 
   const strength  =
     stats.nps > 60  ? `Exceptional customer advocacy — NPS of ${Math.round(stats.nps)} puts you in the top 10% of SaaS companies.`
@@ -1757,7 +1757,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
 
         {/* ARR chart */}
         <div style={{
-          background: '#9DDBFB', border: '1.5px solid #244470',
+          background: '#07162C', border: '1.5px solid #244470',
           borderRadius: 16, padding: '20px 20px 12px',
           marginBottom: 16,
           boxShadow: '0 4px 16px rgba(80,50,10,0.09)',
@@ -1772,7 +1772,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10, marginBottom: 14 }}>
           {finalSummary.map(item => (
             <div key={item.label} style={{
-              background: '#9DDBFB', border: '1.5px solid #244470',
+              background: '#07162C', border: '1.5px solid #244470',
               borderRadius: 12, padding: '12px 14px',
               boxShadow: '0 2px 8px rgba(80,50,10,0.08)',
             }}>
@@ -1788,7 +1788,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
 
         {/* Strength & weakness */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12, marginBottom: 26 }}>
-          <div style={{ background: '#f0fdf4', border: '1.5px solid #86efac', borderRadius: 14, padding: 16 }}>
+          <div style={{ background: '#07162C', border: '1.5px solid #86efac', borderRadius: 14, padding: 16 }}>
             <div style={{ fontSize: 11, fontWeight: 800, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.09em', marginBottom: 8 }}>
               ★ Standout Strength
             </div>
@@ -1922,11 +1922,11 @@ function GameScreen({
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
                   <span style={{
                     fontSize: 10, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.07em',
-                    color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#a06010'),
+                    color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#47BDFA'),
                   }}>{bar.label}</span>
                   <span style={{
                     fontSize: 11, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace",
-                    color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#a06010'),
+                    color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#47BDFA'),
                   }}>{bar.pct.toFixed(0)}%</span>
                 </div>
                 <div style={{ background: '#0F34B6', borderRadius: 4, height: 8, overflow: 'hidden' }}>
