@@ -72,12 +72,12 @@ interface BoardQuestion {
 // ─── Domain config ────────────────────────────────────────────────────────────
 
 const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }> = {
-  Engineering: { color: '#9ad6f4', bg: '#133C97', icon: engineeringIcon },
-  Sales:       { color: '#9ad6f4', bg: '#ECA219', icon: salesIcon },
-  Marketing:   { color: '#9ad6f4', bg: '#0F7387', icon: marketingIcon },
-  Finance:     { color: '#07162C', bg: ' #D43424', icon: financeIcon },
-  Customers:   { color: '#9ad6f4', bg: '#F37115', icon: customersIcon },
-  Partners:    { color: '#9ad6f4', bg: '#462B87', icon: partnersIcon },
+  Engineering: { color: '#9ad6f4', bg: 'linear-gradient(35deg, #133C97 0%, #01102C 100%)', icon: engineeringIcon },
+  Sales:       { color: '#9ad6f4', bg: 'linear-gradient(35deg, #ECA219 0%, #6D5310 100%)', icon: salesIcon },
+  Marketing:   { color: '#9ad6f4', bg: 'linear-gradient(35deg, #0F7387 0%, #002232 100%)', icon: marketingIcon },
+  Finance:     { color: '#07162C', bg: 'linear-gradient(35deg, #D43424 0%, #42112E 100%)', icon: financeIcon },
+  Customers:   { color: '#9ad6f4', bg: 'linear-gradient(35deg, #F37115 0%, #6C3115 100%)', icon: customersIcon },
+  Partners:    { color: '#9ad6f4', bg: 'linear-gradient(35deg, #462B87 0%, #0D0B2B 100%)', icon: partnersIcon },
 }
 
 // ─── Starting stats ───────────────────────────────────────────────────────────
@@ -1212,7 +1212,7 @@ function DomainBadge({ domain }: { domain: Domain }) {
       fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
       whiteSpace: 'nowrap',
     }}>
-      <img src={cfg.icon} alt="" style={{ width: 16, height: 16 }} />
+      <img src={cfg.icon} alt="" style={{ width: 32, height: 32 }} />
       {domain}
     </span>
   )
@@ -1598,12 +1598,12 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
 
   const scenarios = [
     {
-      id: 'startup' as const, emoji: startup, name: 'Scrappy Startup',
+      id: 'startup' as const, emoji:  <img src={startup} alt="Scrappy startup" style={{ width: 60, height: 60 }} />, name: 'Scrappy Startup',
       desc: "You've just signed your first 50 paying customers. Low burn, full control — but every decision matters.",
       stats: [{ l: 'ARR', v: '£120k' }, { l: 'Runway', v: '14 months' }, { l: 'Team', v: '6 people' }],
     },
     {
-      id: 'series-a' as const, emoji: seriesA, name: 'Series A',
+      id: 'series-a' as const, emoji: <img src={seriesA} alt="Series A" style={{ width: 60, height: 60 }} />, name: 'Series A',
       desc: "You closed your Series A last quarter. Growing fast, investor pressure rising, and tech debt already accumulating.",
       stats: [{ l: 'ARR', v: '£800k' }, { l: 'Runway', v: '18 months' }, { l: 'Team', v: '24 people' }],
     },
