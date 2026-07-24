@@ -1363,7 +1363,7 @@ function EventCard({
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#47BDFA'}`,
                 borderRadius: 10, padding: '9px 13px',
                 fontSize: 14, fontWeight: 700,
-                color: chosen ? '#9DDBFB' : dimmed ? '#0F34B6' : '#47BDFA',
+                color: chosen ? '#d1fce7' : dimmed ? '#47BDFA' : '#47BDFA',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
                 opacity: dimmed ? 0.55 : 1,
@@ -1429,14 +1429,14 @@ function ArrChart({ history }: { history: number[] }) {
       ))}
       {[min, min + range*0.5, max].map((v, i) => (
         <text key={i} x={pL-4} y={pT + iH - i*(iH/2) + 4}
-          textAnchor="end" fontSize="9" fill="#0F34B6"
+          textAnchor="end" fontSize="12" fill="#47BDFA"
           fontFamily="'JetBrains Mono', monospace">{fmt(v)}</text>
       ))}
       {[0, 14, 29, 44, history.length-1].map(i => {
         if (i >= history.length) return null
         const x = pL + (i / (history.length-1)) * iW
         return <text key={i} x={x} y={H-4} textAnchor="middle"
-          fontSize="9" fill="#0F34B6" fontFamily="'JetBrains Mono', monospace">
+          fontSize="12" fill="#47BDFA" fontFamily="'JetBrains Mono', monospace">
           M{i+1}
         </text>
       })}
@@ -1464,7 +1464,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
       <div
         className="fade-in"
         style={{
-          background: '#9DDBFB', border: '2px solid #47BDFA',
+          background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)', border: '2px solid #47BDFA',
           borderRadius: 24, padding: '30px 28px 26px',
           maxWidth: 540, width: '100%',
           boxShadow: '0 36px 90px rgba(80,40,0,0.45)',
@@ -1486,7 +1486,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
       }}
     />
           </div>
-          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010c1b', fontFamily: "'Lexend', sans-serif" }}>
+          <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#47BDFA', fontFamily: "'Lexend', sans-serif" }}>
             The board has questions.
           </h2>
           <p style={{ margin: 0, fontSize: 13.5, color: '#9DDBFB', lineHeight: 1.5 }}>
@@ -1499,7 +1499,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             <div style={{
               background: '#112B4C', border: '1.5px solid #47BDFA',
               borderRadius: 10, padding: '11px 15px',
-              fontSize: 14.5, fontWeight: 700, color: '#010C1B',
+              fontSize: 14.5, fontWeight: 700, color: '#47BDFA',
               fontFamily: "'Lexend', sans-serif", lineHeight: 1.35, marginBottom: 10,
             }}>
               "{q.question}"
@@ -1515,7 +1515,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
                       onClick={() => setAnswers(p => { const n = [...p]; n[qi] = ai; return n })}
                       style={{
                         width: '100%',
-                        background: chosen ? (a.honest ? '#d1fce7' : '#fde8e8') : '#9DDBFB',
+                        background: chosen ? (a.honest ? '#d1fce7' : '#fde8e8') : '#47BDFA',
                         border: `1.5px solid ${chosen ? (a.honest ? '#2d7a45' : '#c46060') : '#47BDFA'}`,
                         borderRadius: 10, padding: '9px 14px',
                         fontSize: 13.5, fontWeight: 600,
@@ -1966,10 +1966,10 @@ function GameScreen({
 
         {/* Causality reference */}
         <div style={{
-          background: '#0F34B6', border: '1px solid #244470',
+          background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)', border: '1px solid #244470',
           borderRadius: 12, padding: '12px 16px', marginBottom: 16,
         }}>
-          <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 9 }}>
+          <div style={{ fontSize: 12, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 9 }}>
             ⛓ Decision Causality — trace how past decisions compound
           </div>
           <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
