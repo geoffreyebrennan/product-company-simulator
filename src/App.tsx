@@ -1679,7 +1679,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? '#0A1E37' : '#47BDFA'}`, paddingTop: 10 }}>
                   {sc.stats.map(s => (
                     <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 16 }}>
-                      <span style={{ color: active ? '#47BDFA':'#07162C', fontWeight: 600 }}>{s.l}</span>
+                      <span style={{ color: active ? '#07162C' : '#47BDFA', fontWeight: 600 }}>{s.l}</span>
                       <span style={{ color: active ? '#9DDBFB' : '#47BDFA', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
                     </div>
                   ))}
@@ -1695,7 +1695,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           style={{
             display: 'block', width: '100%',
             background: sel ? '#0F8F36' : '#244470',
-            color: sel ? '#9DDBFB' : '#07162C', border: 'none', borderRadius: 14,
+            color: sel ? '#07162C':'#9DDBFB', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
