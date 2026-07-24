@@ -1628,15 +1628,15 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           <h1 style={{
             fontSize: 'clamp(34px, 6vw, 54px)',
             fontWeight: 900, fontFamily: "'Lexend', sans-serif",
-            color: '#010C1B', margin: '0 0 6px',
+            color: '#9DDBFB', margin: '0 0 6px',
             lineHeight: 1.08, letterSpacing: '-0.01em',
           }}>
             Product Company Simulator
           </h1></div>
-          <p style={{ fontSize: 15.5, color: '#7a5c30', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
+          <p style={{ fontSize: 15.5, color: '#9DDBFB', fontWeight: 600, fontStyle: 'italic', margin: '0 0 18px' }}>
             Learn how product decisions compound over time.
           </p>
-          <p style={{ fontSize: 14.5, color: '#5a3e1a', lineHeight: 1.72, maxWidth: 530, margin: '0 auto' }}>
+          <p style={{ fontSize: 14.5, color: '#47BDFA', lineHeight: 1.72, maxWidth: 530, margin: '0 auto' }}>
             You're the new Head of Product at a fast-growing SaaS startup. Every month you'll face real decisions
             — engineering trade-offs, sales pressures, hiring calls, customer crises. Some choices ripple forward
             in ways you won't see for months. Play across 60 months and discover what kind of company you build.
@@ -1644,7 +1644,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
         </div>
 
         {/* Scenario cards */}
-        <div style={{ fontSize: 11, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: 'center', marginBottom: 14 }}>
+        <div style={{ fontSize: 11, fontWeight: 800, color: '#47BDFA', textTransform: 'uppercase', letterSpacing: '0.12em', textAlign: 'center', marginBottom: 14 }}>
           Choose Your Starting Scenario
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14, marginBottom: 22 }}>
@@ -1690,7 +1690,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           onClick={() => sel && onBegin(sel)}
           style={{
             display: 'block', width: '100%',
-            background: sel ? '#4a7c59' : '#c4b090',
+            background: sel ? '#4a7c59' : '#244470',
             color: '#fff', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
@@ -1806,7 +1806,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
           onClick={onRestart}
           style={{
             display: 'block', width: '100%',
-            background: '#4a7c59', color: '#fff', border: 'none',
+            background: 'linear-gradient(160deg,#4a7c59,#34AA58', color: '#fff', border: 'none',
             borderRadius: 14, padding: '16px 0',
             fontSize: 18, fontWeight: 800, cursor: 'pointer',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
