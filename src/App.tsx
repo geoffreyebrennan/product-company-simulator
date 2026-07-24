@@ -1124,14 +1124,22 @@ function getEventsForMonth(
   const remaining  = pending.filter(p => p.triggerMonth > month)
   const current: GameEvent[] = triggered.map(p => ({ ...p.event, id: genId(), isConsequence: true }))
 
-  if (current.length < 2) {
-    const idx = (month - 1) % EVENT_POOL.length
-    current.push({ ...EVENT_POOL[idx], id: genId() })
-  }
-  if (current.length < 2 && month % 3 !== 0) {
-    const idx2 = month % EVENT_POOL.length
-    current.push({ ...EVENT_POOL[idx2], id: genId() })
-  }
+function pickRandomEvent(pool: Omit<GameEvent, 'id'>[], exclude: string[] = []) {
+  const available = pool.filter(e => !exclude.includes(e.headline))
+  const source = available.length > 0 ? available : pool
+  const idx = Math.floor(Math.random() * source.length)
+  return source[idx]
+}
+
+if (current.length < 2) {
+  const event = pickRandomEvent(EVENT_POOL)
+  current.push({ ...event, id: genId() })
+}
+if (current.length < 2 && month % 3 !== 0) {
+  const usedHeadlines = current.map(e => e.headline)
+  const event = pickRandomEvent(EVENT_POOL, usedHeadlines)
+  current.push({ ...event, id: genId() })
+}
 
   return { current: current.slice(0, 2), remaining }
 }
