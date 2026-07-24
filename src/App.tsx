@@ -1713,7 +1713,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
             transition: 'all 0.2s ease',
           }}
         >
-          {sel ? '👉  Begin → Month 1' : 'Select a scenario to begin'}
+          {sel ? '👉  Begin → Month 1' : '☝️  Select a scenario to begin'}
         </button>
       </div>
       <footer style={{ color: '#244470', padding: '16px', textAlign: 'center', fontFamily: "'Lexend', sans-serif" }}>
