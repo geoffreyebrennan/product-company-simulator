@@ -72,12 +72,12 @@ interface BoardQuestion {
 // ─── Domain config ────────────────────────────────────────────────────────────
 
 const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }> = {
-  Engineering: { color: '#9ad6f4', bg: '#5b4fcf', icon: engineeringIcon },
-  Sales:       { color: '#9ad6f4', bg: '#0e7a48', icon: salesIcon },
-  Marketing:   { color: '#9ad6f4', bg: '#c4500a', icon: marketingIcon },
-  Finance:     { color: '#07162C', bg: ' #1a60c4', icon: financeIcon },
-  Customers:   { color: '#9ad6f4', bg: '#dda327', icon: customersIcon },
-  Partners:    { color: '#9ad6f4', bg: '#0e3c7c', icon: partnersIcon },
+  Engineering: { color: '#9ad6f4', bg: '#133C97', icon: engineeringIcon },
+  Sales:       { color: '#9ad6f4', bg: '#ECA219', icon: salesIcon },
+  Marketing:   { color: '#9ad6f4', bg: '#0F7387', icon: marketingIcon },
+  Finance:     { color: '#07162C', bg: ' #D43424', icon: financeIcon },
+  Customers:   { color: '#9ad6f4', bg: '#F37115', icon: customersIcon },
+  Partners:    { color: '#9ad6f4', bg: '#462B87', icon: partnersIcon },
 }
 
 // ─── Starting stats ───────────────────────────────────────────────────────────
