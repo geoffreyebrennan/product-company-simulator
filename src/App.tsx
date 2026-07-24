@@ -1303,7 +1303,7 @@ function EventCard({
     <div
       className="fade-in"
       style={{
-        background: '#9DDBFB',
+        background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
         border: `2px solid ${event.isConsequence ? '#c86060' : '#244470'}`,
         borderRadius: 16, padding: 18,
         boxShadow: '0 4px 18px rgba(80,50,10,0.11), 0 1px 0 rgba(255,255,255,0.88) inset',
@@ -1325,7 +1325,7 @@ function EventCard({
             </span>
           )}
         </div>
-        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif", lineHeight: 1.3 }}>
+        <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#9DDBFB', fontFamily: "'Lexend', sans-serif", lineHeight: 1.3 }}>
           {event.headline}
         </h3>
         <p style={{ margin: 0, fontSize: 13, color: '#9DDBFB', lineHeight: 1.55 }}>
@@ -1359,11 +1359,11 @@ function EventCard({
               disabled={isLocked}
               onClick={() => onChoose(i)}
               style={{
-                background: chosen ? '#0F8F36' : '#9DDBFB',
+                background: chosen ? '#0F8F36' : '#244470',
                 border: `1.5px solid ${chosen ? '#3a6a49' : '#47BDFA'}`,
                 borderRadius: 10, padding: '9px 13px',
                 fontSize: 14, fontWeight: 700,
-                color: chosen ? '#9DDBFB' : dimmed ? '#b0986a' : '#010C1B',
+                color: chosen ? '#9DDBFB' : dimmed ? '#0F34B6' : '#47BDFA',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
                 opacity: dimmed ? 0.55 : 1,
