@@ -1644,7 +1644,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
         </div>
 
         {/* Scenario cards */}
-        <div style={{ fontSize: 11, fontWeight: 800, color: '#47BDFA', letterSpacing: '0.12em', textAlign: 'center', marginBottom: 14 }}>
+        <div style={{ fontSize: 11, fontWeight: 800, color: '#9DDBFB', letterSpacing: '0.12em', textAlign: 'center', marginBottom: 14 }}>
           Choose Your Starting Scenario
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14, marginBottom: 22 }}>
@@ -1655,14 +1655,14 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 key={sc.id}
                 onClick={() => setSel(sc.id)}
                 style={{
-                  background: active ? 'linear-gradient(35deg, #075c21 0%, #0F8F36 60%, #34AA58 100%)' : 'linear-gradient(35deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
-                  border: `2px solid ${active ? '#3a6a49' : '#244470'}`,
+                  background: active ? 'linear-gradient(35deg, #075c21 0%, #075c21 60%, #34AA58 100%)' : 'linear-gradient(35deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
+                  border: `2px solid ${active ? '#34AA58' : '#244470'}`,
                   borderRadius: 16, padding: '18px 18px 16px',
                   cursor: 'pointer', textAlign: 'left',
                   transition: 'all 0.2s ease',
                   boxShadow: active
                     ? '0 6px 24px rgba(74,124,89,0.38)'
-                    : '0 4px 14px rgba(80,50,10,0.09), 0 1px 0 rgba(255,255,255,0.66) inset',
+                    : '0 4px 14px rgba(80,50,10,0.09), 0 1px 0 rgba(255,255,255,0.45) inset',
                 }}
               >
                 
@@ -1695,7 +1695,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           style={{
             display: 'block', width: '100%',
             background: sel ? '#0F8F36' : '#244470',
-            color: sel ? '#07162C':'#9DDBFB', border: 'none', borderRadius: 50,
+            color: sel ? '#07162C':'#9DDBFB', border: sel ? '#9DDBFB':'none', borderRadius: 50,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
