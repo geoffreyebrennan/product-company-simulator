@@ -1665,11 +1665,15 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                     : '0 4px 14px rgba(80,50,10,0.09), 0 1px 0 rgba(255,255,255,0.88) inset',
                 }}
               >
-                <div style={{ fontSize: 28, marginBottom: 7 }}>{sc.emoji}</div>
-                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#9DDBFB' : '#010C1B', fontFamily: "'Lexend', sans-serif", marginBottom: 6 }}>
-                  {sc.name}
-                </div>
-                <div style={{ fontSize: 13, color: active ? 'rgba(255,255,255,0.82)' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
+                
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+  <div style={{ fontSize: 36 }}>{sc.emoji}</div>
+  <div style={{ fontSize: 18, fontWeight: 900, color: active ? '#244470' : '#9DDBFB', fontFamily: "'Lexend', sans-serif" }}>
+    {sc.name}
+  </div>
+</div>
+                
+                <div style={{ fontSize: 14, color: active ? '#244470' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
                   {sc.desc}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? '#0F8F36' : '#47BDFA'}`, paddingTop: 10 }}>
