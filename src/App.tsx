@@ -1212,7 +1212,8 @@ function DomainBadge({ domain }: { domain: Domain }) {
       fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
       whiteSpace: 'nowrap',
     }}>
-      {cfg.icon} {domain}
+      <img src={cfg.icon} alt="" style={{ width: 16, height: 16 }} />
+      {domain}
     </span>
   )
 }
