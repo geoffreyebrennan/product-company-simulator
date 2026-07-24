@@ -2011,7 +2011,7 @@ function GameScreen({
         </button>
       </div>
 
-       <footer style={{ padding: '16px', textAlign: 'center', fontFamily: "'Lexend', sans-serif" }}>
+       <footer style={{ color: '#244470', padding: '16px', textAlign: 'center', fontFamily: "'Lexend', sans-serif" }}>
         © 2026 Geoffrey Brennan
       </footer>
 
