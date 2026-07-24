@@ -1236,7 +1236,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
             <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
               ⛓ Why did this happen?
             </div>
-            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif" }}>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#47BDFA', fontFamily: "'Lexend', sans-serif" }}>
               {title}
             </h3>
           </div>
@@ -1672,11 +1672,11 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 <div style={{ fontSize: 13, color: active ? 'rgba(255,255,255,0.82)' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
                   {sc.desc}
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? 'rgba(255,255,255,0.2)' : 'rgb(232, 208, 160)'}`, paddingTop: 10 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? '#0F8F36' : '#47BDFA'}`, paddingTop: 10 }}>
                   {sc.stats.map(s => (
-                    <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
-                      <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#0F34B6', fontWeight: 600 }}>{s.l}</span>
-                      <span style={{ color: active ? '#9DDBFB' : '#010C1B', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
+                    <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 16 }}>
+                      <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#47BDFA', fontWeight: 600 }}>{s.l}</span>
+                      <span style={{ color: active ? '#9DDBFB' : '#47BDFA', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
                     </div>
                   ))}
                 </div>
