@@ -1472,7 +1472,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
         }}
       >
         <div style={{ marginBottom: 22 }}>
-          <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>
+          <div style={{ fontSize: 10, fontWeight: 800, color: '#47BDFA', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
           <div style={{  }}>
@@ -1498,8 +1498,8 @@ function BoardMeetingModal({ month, questions, onDone }: {
           <div key={qi} style={{ marginBottom: 22 }}>
             <div style={{
               background: '#112B4C', border: '1.5px solid #47BDFA',
-              borderRadius: 10, padding: '11px 15px',
-              fontSize: 14.5, fontWeight: 700, color: '#47BDFA',
+              borderRadius: 10, padding: '16px',
+              fontSize: 16, fontWeight: 700, color: '#47BDFA',
               fontFamily: "'Lexend', sans-serif", lineHeight: 1.35, marginBottom: 10,
             }}>
               "{q.question}"
@@ -1518,7 +1518,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
                         background: chosen ? (a.honest ? '#d1fce7' : '#fde8e8') : '#47BDFA',
                         border: `1.5px solid ${chosen ? (a.honest ? '#2d7a45' : '#c46060') : '#47BDFA'}`,
                         borderRadius: 10, padding: '9px 14px',
-                        fontSize: 13.5, fontWeight: 600,
+                        fontSize: 14.5, fontWeight: 600,
                         color: chosen ? (a.honest ? '#1a5a30' : '#8a2020') : '#010C1B',
                         cursor: revealed ? 'default' : 'pointer',
                         textAlign: 'left', transition: 'all 0.15s',
@@ -1553,7 +1553,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             onClick={() => setRevealed(true)}
             style={{
               width: '100%',
-              background: allAnswered ? '#2a4a6a' : '#c4b090',
+              background: allAnswered ? '#34AA58' : '#112B4C',
               color: '#9DDBFB', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
               cursor: allAnswered ? 'pointer' : 'not-allowed',
