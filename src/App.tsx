@@ -1671,6 +1671,9 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
   <div style={{ fontSize: 18, fontWeight: 900, color: active ? '#0A1E37' : '#9DDBFB', fontFamily: "'Lexend', sans-serif" }}>
     {sc.name}
   </div>
+        <footer style={{ padding: '16px', textAlign: 'center', fontFamily: "'Lexend', sans-serif" }}>
+        © 2026 Geoffrey Brennan
+      </footer>
 </div>
                 
                 <div style={{ fontSize: 14, color: active ? '#0A1E37' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
