@@ -1695,7 +1695,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           style={{
             display: 'block', width: '100%',
             background: sel ? '#0F8F36' : '#244470',
-            color: '#9DDBFB', border: 'none', borderRadius: 14,
+            color: sel ? '#9DDBFB' : '#07162C', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
