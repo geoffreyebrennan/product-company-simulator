@@ -1707,7 +1707,11 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           {sel ? '👉  Begin → Month 1' : 'Select a scenario to begin'}
         </button>
       </div>
+      <footer style={{ color: '#244470', padding: '16px', textAlign: 'center', fontFamily: "'Lexend', sans-serif" }}>
+        © 2026 Geoffrey Brennan
+      </footer>
     </div>
+    
   )
 }
 
