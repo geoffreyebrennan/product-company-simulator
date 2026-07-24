@@ -1679,7 +1679,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? '#0A1E37' : '#47BDFA'}`, paddingTop: 10 }}>
                   {sc.stats.map(s => (
                     <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 16 }}>
-                      <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#47BDFA', fontWeight: 600 }}>{s.l}</span>
+                      <span style={{ color: active ? '#07162C' : '#47BDFA', fontWeight: 600 }}>{s.l}</span>
                       <span style={{ color: active ? '#9DDBFB' : '#47BDFA', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
                     </div>
                   ))}
