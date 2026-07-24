@@ -66,7 +66,7 @@ interface BoardQuestion {
 const DOMAIN_CONFIG: Record<Domain, { color: string; bg: string; icon: string }> = {
   Engineering: { color: '#5b4fcf', bg: '#ede9fe', icon: '⚙' },
   Sales:       { color: '#0e7a48', bg: '#d1fce7', icon: '📈' },
-  Marketing:   { color: '#c4500a', bg: '#fff0e8', icon: '📣' },
+  Marketing:   { color: '#c4500a', bg: '#9DDBFB0e8', icon: '📣' },
   Finance:     { color: '#a07008', bg: '#fef9d8', icon: '💰' },
   Customers:   { color: '#1a60c4', bg: '#e8f3ff', icon: '👥' },
   Partners:    { color: '#0e3c7c', bg: '#e8f3ff', icon: '🤝' },
@@ -1176,7 +1176,7 @@ function StatCard({ def, value, prevValue }: { def: StatDef; value: number; prev
       transition: 'border-color 0.3s',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <span style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           {def.label}
         </span>
         <TrendArrow diff={diff} goodDir={def.goodDir} />
@@ -1185,7 +1185,7 @@ function StatCard({ def, value, prevValue }: { def: StatDef; value: number; prev
         {def.format(value)}
       </div>
       {Math.abs(diff) >= 0.005 && (
-        <div style={{ fontSize: 10, fontFamily: "'JetBrains Mono', monospace", color: good ? '#2a6a3a' : bad ? '#a02020' : '#8a6a38' }}>
+        <div style={{ fontSize: 10, fontFamily: "'JetBrains Mono', monospace", color: good ? '#2a6a3a' : bad ? '#a02020' : '#0F34B6' }}>
           {def.delta(diff)}
         </div>
       )}
@@ -1233,7 +1233,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
       >
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 20 }}>
           <div>
-            <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
+            <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 4 }}>
               ⛓ Why did this happen?
             </div>
             <h3 style={{ margin: 0, fontSize: 18, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif" }}>
@@ -1242,7 +1242,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
           </div>
           <button
             onClick={onClose}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#8a6a38', fontSize: 18, padding: 4, lineHeight: 1 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#0F34B6', fontSize: 18, padding: 4, lineHeight: 1 }}
           >✕</button>
         </div>
 
@@ -1253,7 +1253,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
             return (
               <div key={i}>
                 <div style={{
-                  background: isFirst ? '#f5ecd0' : isLast ? '#fde8e8' : '#fff8ef',
+                  background: isFirst ? '#f5ecd0' : isLast ? '#fde8e8' : '#9DDBFB8ef',
                   border: `1.5px solid ${isFirst ? '#47BDFA' : isLast ? '#d06060' : '#dcc890'}`,
                   borderRadius: 10, padding: '10px 14px',
                   fontSize: 13.5, lineHeight: 1.45,
@@ -1279,7 +1279,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
           onClick={onClose}
           style={{
             marginTop: 20, width: '100%',
-            background: '#0F8F36', color: '#fff', border: 'none',
+            background: '#0F8F36', color: '#9DDBFB', border: 'none',
             borderRadius: 10, padding: '11px 0',
             fontSize: 14, fontWeight: 700, cursor: 'pointer',
             fontFamily: "'Nunito', sans-serif",
@@ -1328,7 +1328,7 @@ function EventCard({
         <h3 style={{ margin: '0 0 5px', fontSize: 15, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif", lineHeight: 1.3 }}>
           {event.headline}
         </h3>
-        <p style={{ margin: 0, fontSize: 13, color: '#6a4a24', lineHeight: 1.55 }}>
+        <p style={{ margin: 0, fontSize: 13, color: '#9DDBFB', lineHeight: 1.55 }}>
           {event.description}
         </p>
       </div>
@@ -1359,11 +1359,11 @@ function EventCard({
               disabled={isLocked}
               onClick={() => onChoose(i)}
               style={{
-                background: chosen ? '#0F8F36' : '#fff',
-                border: `1.5px solid ${chosen ? '#3a6a49' : '#c8a860'}`,
+                background: chosen ? '#0F8F36' : '#9DDBFB',
+                border: `1.5px solid ${chosen ? '#3a6a49' : '#47BDFA'}`,
                 borderRadius: 10, padding: '9px 13px',
                 fontSize: 13, fontWeight: 700,
-                color: chosen ? '#fff' : dimmed ? '#b0986a' : '#010C1B',
+                color: chosen ? '#9DDBFB' : dimmed ? '#b0986a' : '#010C1B',
                 cursor: isLocked ? 'default' : 'pointer',
                 textAlign: 'left', transition: 'all 0.15s ease',
                 opacity: dimmed ? 0.55 : 1,
@@ -1429,14 +1429,14 @@ function ArrChart({ history }: { history: number[] }) {
       ))}
       {[min, min + range*0.5, max].map((v, i) => (
         <text key={i} x={pL-4} y={pT + iH - i*(iH/2) + 4}
-          textAnchor="end" fontSize="9" fill="#8a6a38"
+          textAnchor="end" fontSize="9" fill="#0F34B6"
           fontFamily="'JetBrains Mono', monospace">{fmt(v)}</text>
       ))}
       {[0, 14, 29, 44, history.length-1].map(i => {
         if (i >= history.length) return null
         const x = pL + (i / (history.length-1)) * iW
         return <text key={i} x={x} y={H-4} textAnchor="middle"
-          fontSize="9" fill="#8a6a38" fontFamily="'JetBrains Mono', monospace">
+          fontSize="9" fill="#0F34B6" fontFamily="'JetBrains Mono', monospace">
           M{i+1}
         </text>
       })}
@@ -1472,7 +1472,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
         }}
       >
         <div style={{ marginBottom: 22 }}>
-          <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>
+          <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>
             ⚖ Quarterly Board Review · Q{quarter} · Month {month}
           </div>
           <div style={{  }}>
@@ -1489,7 +1489,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
           <h2 style={{ margin: '0 0 8px', fontSize: 24, fontWeight: 900, color: '#010C1B', fontFamily: "'Lexend', sans-serif" }}>
             The board has questions.
           </h2>
-          <p style={{ margin: 0, fontSize: 13.5, color: '#6a4a24', lineHeight: 1.5 }}>
+          <p style={{ margin: 0, fontSize: 13.5, color: '#9DDBFB', lineHeight: 1.5 }}>
             Choose your responses carefully. The board has access to your real metrics.
           </p>
         </div>
@@ -1497,7 +1497,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
         {questions.map((q, qi) => (
           <div key={qi} style={{ marginBottom: 22 }}>
             <div style={{
-              background: '#f0e8d0', border: '1.5px solid #47BDFA',
+              background: '#112B4C', border: '1.5px solid #47BDFA',
               borderRadius: 10, padding: '11px 15px',
               fontSize: 14.5, fontWeight: 700, color: '#010C1B',
               fontFamily: "'Lexend', sans-serif", lineHeight: 1.35, marginBottom: 10,
@@ -1515,8 +1515,8 @@ function BoardMeetingModal({ month, questions, onDone }: {
                       onClick={() => setAnswers(p => { const n = [...p]; n[qi] = ai; return n })}
                       style={{
                         width: '100%',
-                        background: chosen ? (a.honest ? '#d1fce7' : '#fde8e8') : '#fff',
-                        border: `1.5px solid ${chosen ? (a.honest ? '#2d7a45' : '#c46060') : '#c8a860'}`,
+                        background: chosen ? (a.honest ? '#d1fce7' : '#fde8e8') : '#9DDBFB',
+                        border: `1.5px solid ${chosen ? (a.honest ? '#2d7a45' : '#c46060') : '#47BDFA'}`,
                         borderRadius: 10, padding: '9px 14px',
                         fontSize: 13.5, fontWeight: 600,
                         color: chosen ? (a.honest ? '#1a5a30' : '#8a2020') : '#010C1B',
@@ -1529,7 +1529,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
                     </button>
                     {showR && (
                       <div style={{
-                        background: a.honest ? '#f0fdf4' : '#fff8f8',
+                        background: a.honest ? '#f0fdf4' : '#9DDBFB8f8',
                         border: `1px solid ${a.honest ? '#86efac' : '#fca5a5'}`,
                         borderTop: 'none',
                         borderRadius: '0 0 8px 8px', padding: '8px 14px',
@@ -1554,7 +1554,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             style={{
               width: '100%',
               background: allAnswered ? '#2a4a6a' : '#c4b090',
-              color: '#fff', border: 'none', borderRadius: 12,
+              color: '#9DDBFB', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
               cursor: allAnswered ? 'pointer' : 'not-allowed',
               fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
@@ -1567,7 +1567,7 @@ function BoardMeetingModal({ month, questions, onDone }: {
             onClick={onDone}
             style={{
               width: '100%', background: '#0F8F36',
-              color: '#fff', border: 'none', borderRadius: 12,
+              color: '#9DDBFB', border: 'none', borderRadius: 12,
               padding: '13px 0', fontSize: 15, fontWeight: 800,
               cursor: 'pointer', fontFamily: "'Lexend', sans-serif",
               letterSpacing: '0.04em',
@@ -1655,8 +1655,8 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 key={sc.id}
                 onClick={() => setSel(sc.id)}
                 style={{
-                  background: active ? 'linear-gradient(155deg, #0F8F36 0%, #0F8F36 60%, #34AA58 100%)' : 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
-                  border: `2px solid ${active ? '#3a6a49' : '#c8a860'}`,
+                  background: active ? 'linear-gradient(35deg, #0F8F36 0%, #0F8F36 60%, #34AA58 100%)' : 'linear-gradient(35deg, #010F22 0%, #010F22 60%, #112B4C 100%)',
+                  border: `2px solid ${active ? '#3a6a49' : '#47BDFA'}`,
                   borderRadius: 16, padding: '18px 18px 16px',
                   cursor: 'pointer', textAlign: 'left',
                   transition: 'all 0.2s ease',
@@ -1666,17 +1666,17 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
                 }}
               >
                 <div style={{ fontSize: 28, marginBottom: 7 }}>{sc.emoji}</div>
-                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#fff' : '#010C1B', fontFamily: "'Lexend', sans-serif", marginBottom: 6 }}>
+                <div style={{ fontSize: 17, fontWeight: 900, color: active ? '#9DDBFB' : '#010C1B', fontFamily: "'Lexend', sans-serif", marginBottom: 6 }}>
                   {sc.name}
                 </div>
-                <div style={{ fontSize: 13, color: active ? 'rgba(255,255,255,0.82)' : '#6a4a24', lineHeight: 1.55, marginBottom: 12 }}>
+                <div style={{ fontSize: 13, color: active ? 'rgba(255,255,255,0.82)' : '#9DDBFB', lineHeight: 1.55, marginBottom: 12 }}>
                   {sc.desc}
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? 'rgba(255,255,255,0.2)' : '#e8d0a0'}`, paddingTop: 10 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5, borderTop: `1px solid ${active ? 'rgba(255,255,255,0.2)' : 'rgb(232, 208, 160)'}`, paddingTop: 10 }}>
                   {sc.stats.map(s => (
                     <div key={s.l} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13 }}>
-                      <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#8a6a38', fontWeight: 600 }}>{s.l}</span>
-                      <span style={{ color: active ? '#fff' : '#010C1B', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
+                      <span style={{ color: active ? 'rgba(255,255,255,0.7)' : '#0F34B6', fontWeight: 600 }}>{s.l}</span>
+                      <span style={{ color: active ? '#9DDBFB' : '#010C1B', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>{s.v}</span>
                     </div>
                   ))}
                 </div>
@@ -1691,7 +1691,7 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
           style={{
             display: 'block', width: '100%',
             background: sel ? '#0F8F36' : '#244470',
-            color: '#fff', border: 'none', borderRadius: 14,
+            color: '#9DDBFB', border: 'none', borderRadius: 14,
             padding: '16px 0', fontSize: 18, fontWeight: 800,
             cursor: sel ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
@@ -1746,7 +1746,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
     }}>
       <div style={{ maxWidth: 660, width: '100%' }}>
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
             Final Report · Month 60
           </div>
           <h1 style={{ fontSize: 38, fontWeight: 900, color: '#010C1B', margin: '0 0 8px', fontFamily: "'Lexend', sans-serif" }}>
@@ -1762,7 +1762,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
           marginBottom: 16,
           boxShadow: '0 4px 16px rgba(80,50,10,0.09)',
         }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>
             ARR Growth Over 60 Months
           </div>
           <ArrChart history={history.map(s => s.arr)} />
@@ -1776,7 +1776,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
               borderRadius: 12, padding: '12px 14px',
               boxShadow: '0 2px 8px rgba(80,50,10,0.08)',
             }}>
-              <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 5 }}>
+              <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 5 }}>
                 {item.label}
               </div>
               <div style={{ fontSize: 20, fontWeight: 800, color: item.color, fontFamily: "'JetBrains Mono', monospace" }}>
@@ -1794,7 +1794,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
             </div>
             <p style={{ fontSize: 13.5, color: '#14532d', lineHeight: 1.65, margin: 0 }}>{strength}</p>
           </div>
-          <div style={{ background: '#fff8f8', border: '1.5px solid #fca5a5', borderRadius: 14, padding: 16 }}>
+          <div style={{ background: '#9DDBFB8f8', border: '1.5px solid #fca5a5', borderRadius: 14, padding: 16 }}>
             <div style={{ fontSize: 11, fontWeight: 800, color: '#991b1b', textTransform: 'uppercase', letterSpacing: '0.09em', marginBottom: 8 }}>
               ⚠ Standout Weakness
             </div>
@@ -1806,7 +1806,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
           onClick={onRestart}
           style={{
             display: 'block', width: '100%',
-            background: 'linear-gradient(160deg,#0F8F36,#34AA58', color: '#fff', border: 'none',
+            background: 'linear-gradient(160deg,#0F8F36,#34AA58', color: '#9DDBFB', border: 'none',
             borderRadius: 14, padding: '16px 0',
             fontSize: 18, fontWeight: 800, cursor: 'pointer',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.04em',
@@ -1875,7 +1875,7 @@ function GameScreen({
             <div style={{ width: 100, height: 6, background: '#0A1E37', borderRadius: 3, overflow: 'hidden' }}>
               <div style={{ width: `${pct}%`, height: '100%', background: '#47BDFA', borderRadius: 3, transition: 'width 0.4s ease' }}/>
             </div>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#c8a060', fontSize: 11 }}>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#0F34B6', fontSize: 11 }}>
               M{month}/60
             </span>
           </div>
@@ -1883,14 +1883,14 @@ function GameScreen({
             <div style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 800, color: '#47BDFA', fontSize: 14 }}>
               Month {month} of 60
             </div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", color: '#a08058', fontSize: 10 }}>{date}</div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", color: '#0F34B6', fontSize: 10 }}>{date}</div>
           </div>
         </div>
       </div>
 
       {/* Health summary */}
       <div style={{
-        background: '#f5edd8', borderBottom: '1px solid #244470',
+        background: '#0F34B6', borderBottom: '1px solid #244470',
         padding: '7px 20px', fontSize: 13, fontWeight: 600,
         color: health.color, fontFamily: "'Nunito', sans-serif",
         display: 'flex', alignItems: 'center', gap: 6,
@@ -1929,7 +1929,7 @@ function GameScreen({
                     color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#a06010'),
                   }}>{bar.pct.toFixed(0)}%</span>
                 </div>
-                <div style={{ background: '#e8dcc8', borderRadius: 4, height: 8, overflow: 'hidden' }}>
+                <div style={{ background: '#0F34B6', borderRadius: 4, height: 8, overflow: 'hidden' }}>
                   <div style={{
                     width: `${bar.pct}%`, height: '100%',
                     background: `linear-gradient(90deg, ${bar.color1}, ${bar.color2})`,
@@ -1943,7 +1943,7 @@ function GameScreen({
 
         {/* Events section */}
         <div style={{ marginBottom: 14 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 11 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 11 }}>
             This Month — Make Your Decisions
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -1962,10 +1962,10 @@ function GameScreen({
 
         {/* Causality reference */}
         <div style={{
-          background: '#f5edd8', border: '1px solid #244470',
+          background: '#0F34B6', border: '1px solid #244470',
           borderRadius: 12, padding: '12px 16px', marginBottom: 16,
         }}>
-          <div style={{ fontSize: 10, fontWeight: 800, color: '#8a6a38', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 9 }}>
+          <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 9 }}>
             ⛓ Decision Causality — trace how past decisions compound
           </div>
           <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
@@ -1994,7 +1994,7 @@ function GameScreen({
           style={{
             display: 'block', width: '100%',
             background: canEndMonth ? '#2a4a6a' : '#07162C',
-            color: '#fff', border: 'none', borderRadius: 14,
+            color: '#9DDBFB', border: 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.05em',
