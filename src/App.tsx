@@ -1200,7 +1200,7 @@ function DomainBadge({ domain }: { domain: Domain }) {
       display: 'inline-flex', alignItems: 'center', gap: 4,
       background: cfg.bg, color: cfg.color,
       border: `1.5px solid ${cfg.color}55`,
-      borderRadius: 50, padding: '3px 12px',
+      borderRadius: 50, padding: '3px 16px',
       fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif",
       whiteSpace: 'nowrap',
     }}>
@@ -1223,7 +1223,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
       <div
         className="fade-in"
         style={{
-          background: '#9DDBFB', border: '2px solid #47BDFA',
+          background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)', border: '2px solid #47BDFA',
           borderRadius: 20, padding: '28px 28px 24px',
           maxWidth: 460, width: '100%',
           boxShadow: '0 28px 72px rgba(80,40,0,0.35)',
