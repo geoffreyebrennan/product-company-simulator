@@ -1783,7 +1783,7 @@ function EndScreen({ stats, history, onRestart }: { stats: Stats; history: Stats
               <div style={{ fontSize: 10, fontWeight: 800, color: '#0F34B6', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 5 }}>
                 {item.label}
               </div>
-              <div style={{ fontSize: 20, fontWeight: 800, color: item.color, fontFamily: "'JetBrains Mono', monospace" }}>
+              <div style={{ fontSize: 28, fontWeight: 800, color: item.color, fontFamily: "'JetBrains Mono', monospace" }}>
                 {item.value}
               </div>
             </div>
@@ -1887,19 +1887,19 @@ function GameScreen({
             <div style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 800, color: '#47BDFA', fontSize: 14 }}>
               Month {month} of 60
             </div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", color: '#0F34B6', fontSize: 10 }}>{date}</div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", color: '#47BDFA', fontSize: 12 }}>{date}</div>
           </div>
         </div>
       </div>
 
       {/* Health summary */}
       <div style={{
-        background: '#0F34B6', borderBottom: '1px solid #244470',
-        padding: '7px 20px', fontSize: 13, fontWeight: 600,
+        background: 'linear-gradient(155deg, #010F22 0%, #010F22 60%, #112B4C 100%)', borderBottom: '1px solid #244470',
+        padding: '7px 20px', fontSize: 14, fontWeight: 600,
         color: health.color, fontFamily: "'Nunito', sans-serif",
         display: 'flex', alignItems: 'center', gap: 6,
       }}>
-        <span style={{ fontSize: 8 }}>●</span> {health.text}
+        <span style={{ fontSize: 11 }}>●</span> {health.text}
       </div>
 
       <div style={{ padding: '18px 18px 40px', maxWidth: 1080, margin: '0 auto' }}>
@@ -1925,11 +1925,11 @@ function GameScreen({
               <div key={bar.label}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
                   <span style={{
-                    fontSize: 10, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.07em',
+                    fontSize: 12, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.07em',
                     color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#47BDFA'),
                   }}>{bar.label}</span>
                   <span style={{
-                    fontSize: 11, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 12, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace",
                     color: bar.good ? '#2a6a3a' : (bar.pct > 60 ? '#a02020' : '#47BDFA'),
                   }}>{bar.pct.toFixed(0)}%</span>
                 </div>
@@ -1998,7 +1998,7 @@ function GameScreen({
           style={{
             display: 'block', width: '100%',
             background: canEndMonth ? '#0F8F36' : '#07162C',
-            color: '#9DDBFB', border: 'none', borderRadius: 14,
+            color: canEndMonth ? '#07162C':'#9DDBFB', border: 'none', borderRadius: 14,
             padding: '15px 0', fontSize: 15.5, fontWeight: 800,
             cursor: canEndMonth ? 'pointer' : 'not-allowed',
             fontFamily: "'Lexend', sans-serif", letterSpacing: '0.05em',
