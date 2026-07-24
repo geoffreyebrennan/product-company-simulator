@@ -1875,8 +1875,8 @@ function GameScreen({
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {/* Progress bar */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 100, height: 12, background: '#0A1E37', borderRadius: 12, overflow: 'hidden' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+            <div style={{ width: 300, height: 12, background: '#0A1E37', borderRadius: 12, overflow: 'hidden' }}>
               <div style={{ width: `${pct}%`, height: '100%', background: '#47BDFA', borderRadius: 3, transition: 'width 0.4s ease' }}/>
             </div>
             <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#47BDFA', fontSize: 12 }}>
@@ -1947,7 +1947,7 @@ function GameScreen({
 
         {/* Events section */}
         <div style={{ marginBottom: 14 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#47BDFA', letterSpacing: '0.1em', marginBottom: 11 }}>
+          <div style={{ fontSize: 14, fontWeight: 800, color: '#47BDFA', letterSpacing: '0.1em', marginBottom: 11 }}>
             This Month — Make Your Decisions
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
