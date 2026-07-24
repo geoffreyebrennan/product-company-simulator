@@ -1266,7 +1266,7 @@ function CausalityPanel({ chain, title, onClose }: { chain: string[]; title: str
                   border: `1.5px solid ${isFirst ? '#47BDFA' : isLast ? '#d06060' : '#dcc890'}`,
                   borderRadius: 10, padding: '10px 14px',
                   fontSize: 13.5, lineHeight: 1.45,
-                  color: isLast ? '#7a2020' : '#010C1B',
+                  color: isLast ? '#7a2020' : '#dcc890',
                   fontWeight: isFirst || isLast ? 700 : 500,
                   fontFamily: "'Nunito', sans-serif",
                   display: 'flex', gap: 10, alignItems: 'flex-start',
