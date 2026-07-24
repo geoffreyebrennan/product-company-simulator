@@ -1205,7 +1205,7 @@ function DomainBadge({ domain }: { domain: Domain }) {
   const cfg = DOMAIN_CONFIG[domain]
   return (
     <span style={{
-      display: 'inline-flex', alignItems: 'center', gap: 4,
+      display: 'inline-flex', alignItems: 'center', gap: 12,
       background: cfg.bg, color: cfg.color,
       border: `1.5px solid ${cfg.color}55`,
       borderRadius: 50, padding: '3px 16px',
@@ -1598,12 +1598,12 @@ function StartScreen({ onBegin }: { onBegin: (s: 'startup'|'series-a') => void }
 
   const scenarios = [
     {
-      id: 'startup' as const, emoji:  <img src={startup} alt="Scrappy startup" style={{ width: 60, height: 60 }} />, name: 'Scrappy Startup',
+      id: 'startup' as const, emoji:  <img src={startup} alt="Scrappy startup" style={{ width: 120, height: 120 }} />, name: 'Scrappy Startup',
       desc: "You've just signed your first 50 paying customers. Low burn, full control — but every decision matters.",
       stats: [{ l: 'ARR', v: '£120k' }, { l: 'Runway', v: '14 months' }, { l: 'Team', v: '6 people' }],
     },
     {
-      id: 'series-a' as const, emoji: <img src={seriesA} alt="Series A" style={{ width: 60, height: 60 }} />, name: 'Series A',
+      id: 'series-a' as const, emoji: <img src={seriesA} alt="Series A" style={{ width: 120, height: 120 }} />, name: 'Series A',
       desc: "You closed your Series A last quarter. Growing fast, investor pressure rising, and tech debt already accumulating.",
       stats: [{ l: 'ARR', v: '£800k' }, { l: 'Runway', v: '18 months' }, { l: 'Team', v: '24 people' }],
     },
